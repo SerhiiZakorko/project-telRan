@@ -1,0 +1,26 @@
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    background-image: url('./images/main-bg.svg');
+    background-size: cover;
+    padding: 80px 2.5% 210px 2.5%;
+}
+main h2{
+    color: var(--txt-white, #FFF);
+    font-size: calc(6vw);
+    font-weight: 700;
+    line-height: 110%;
+}
+.checkBtn{
+    width: 16%;
+    padding: 1% 4%;
+    border-radius: var(--radius-small, 6px);
+    background: var(--green, #393);
+    border: none;
+    color: var(--txt-white, #FFF);
+    font-size: calc(1.39vw);
+    font-weight: 600;
+    line-height: 130%;
+    cursor: pointer;
+}
