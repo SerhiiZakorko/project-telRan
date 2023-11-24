@@ -1,0 +1,10 @@
+.categoryWrapper, .swiper-wrapper{
+    display: flex;
+}
+.categoryCard{
+    display: flex;
+    flex-direction: column;
+}
+.categoryImg{
+    width: 22vw;
+}

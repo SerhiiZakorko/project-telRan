@@ -3,7 +3,7 @@ import Footer from './layout/footer/Footer';
 import Header from './layout/header/Header';
 
 function App() {
-  return (
+    return (
     <div className="App">
       <Header/>
       <Footer/>
