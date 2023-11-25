@@ -1,9 +1,10 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import classes from './Main.module.css'
 import CategoryList from "./components/categories/CategoryList";
 import { useDispatch } from "react-redux";
 import { fetchCategories } from "../../store/slices/categoriesSlice";
+import GetDiscount from "./components/getDiscount/GetDiscount";
 function Main(){
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -20,14 +21,8 @@ function Main(){
                 navigate("/sales");
             }}>Check out</button>
             </section>
-            <section className={classes.categoriesSamples}>
-                <div className={classes.title}>
-                    <h4>Categories</h4>
-                    <div className={classes.line}></div>
-                    <Link to="/categories">All categories</Link>
-                </div>
-                <CategoryList/>
-            </section>
+            <CategoryList/>
+            <GetDiscount/>
         </main>
     )
 }
