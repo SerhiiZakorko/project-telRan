@@ -5,6 +5,7 @@ import CategoryList from "./components/categories/CategoryList";
 import { useDispatch } from "react-redux";
 import { fetchCategories } from "../../store/slices/categoriesSlice";
 import GetDiscount from "./components/getDiscount/GetDiscount";
+
 function Main(){
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ function Main(){
     useEffect(() => {
         dispatch(fetchCategories());
       }, [dispatch]);
-
+    
     return(
         <main>
             <section className={classes.mainBanner}>

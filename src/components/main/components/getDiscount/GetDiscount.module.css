@@ -39,6 +39,7 @@
   font-weight: 500;
   line-height: 130%;
   width: 100%;
+  outline: none;
 }
 .formWrapper input::placeholder {
   color: var(--txt-white, #fff);
@@ -54,4 +55,5 @@
   font-weight: 600;
   line-height: 130%;
   width: 100%;
+  cursor: pointer;
 }

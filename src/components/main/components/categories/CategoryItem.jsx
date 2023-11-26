@@ -4,7 +4,7 @@ function CategoryItem({ id, title, image}) {
   return (
     <li className={classes.categoryCard}>
       <img src={url+image} className={classes.categoryImg}/>
-      <span>{title}</span>
+      <span className={classes.categoryTitle}>{title}</span>
     </li>
   );
 }
