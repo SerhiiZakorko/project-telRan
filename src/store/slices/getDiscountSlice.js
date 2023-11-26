@@ -51,13 +51,3 @@ export const getDiscountSlice = createSlice({
 });
 
 export default getDiscountSlice.reducer;
-
-// async function getDiscount(){
-//     fetch(url, {
-//         method: 'POST',
-//         body: JSON.stringify(userData),
-//         headers: {
-//             "Content-type": "application/json; charset=utf-8",
-//         }
-//     })
-// }

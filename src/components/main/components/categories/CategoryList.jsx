@@ -18,7 +18,7 @@ function CategoryList() {
       </div>
       <Swiper
         slidesPerView={4}
-        spaceBetween={30}
+        spaceBetween={0}
         pagination={{
           clickable: true,
         }}
