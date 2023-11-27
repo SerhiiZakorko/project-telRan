@@ -3,13 +3,14 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const url = "http://localhost:3333/sale/send"
 const initialState = {
-  discountReceiver: {},
+  discountReceiver: null,
   status: null,
   error: null,
 };
 export const postDiscount= createAsyncThunk(
   "discountReceiver/postDiscount",
   async (_, { rejectWithValue }) => {
+    if(initialState !== null){
     try {
       const response = await fetch(url, {
         method: 'POST',
@@ -26,7 +27,7 @@ export const postDiscount= createAsyncThunk(
       
     } catch (error) {
       return rejectWithValue(error.message);
-    }
+    }}
   }
 );
 

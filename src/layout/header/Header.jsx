@@ -1,7 +1,7 @@
 import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import classes from "./Header.module.css";
-import mainLogo from "./images/main-logo.svg";
-import basket from "./images/basket.svg";
+import mainLogo from "../../assets/images/header/main-logo.svg";
+import basketImg from "../../assets/images/header/basket.svg";
 import Main from "../../components/main/Main";
 import Products from "../../components/products/Products";
 import Sales from "../../components/sales/Sales";
@@ -23,7 +23,7 @@ function Header() {
             <Link to="/sales">All sales</Link>
       </nav>
       <img id={classes.basket}
-        src={basket}
+        src={basketImg}
         alt="basket"
         onClick={() => {
           navigate("/basket");

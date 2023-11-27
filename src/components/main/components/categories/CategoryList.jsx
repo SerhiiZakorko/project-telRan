@@ -19,7 +19,9 @@ function CategoryList() {
       <Swiper
         slidesPerView={4}
         spaceBetween={0}
+        loop= {true}
         pagination={{
+          dynamicBullets: true,
           clickable: true,
         }}
         modules={[Pagination]}

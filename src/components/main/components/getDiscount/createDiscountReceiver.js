@@ -6,7 +6,6 @@ function createDiscountReceiver(name, phone, email){
     if(name !== '' && phone !== '' && email !== '' ){
        discountReceiver = {... {id, name, phone, email}}
        console.log(discountReceiver, "from main/create.js")
-    //    postDiscount()
        return discountReceiver
     } else alert('All field are requared') 
 }

@@ -1,19 +1,23 @@
 import { useState } from "react"
+import { useDispatch } from "react-redux"
 import classes from "./GetDiscount.module.css"
-import handWithPlant from "../../images/hand-with-plant.svg"
+import handWithPlant from "../../../../assets/images/main/hand-with-plant.svg"
 import {createDiscountReceiver} from "./createDiscountReceiver"
 import { postDiscount } from "../../../../store/slices/getDiscountSlice"
 
 function GetDiscount(){
+    const dispatch = useDispatch()
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
     function getDiscount(){
         createDiscountReceiver(name, phone, email)
-        postDiscount()        // не вызывается функция при запуске ф-и getDiscount
+        if(name && phone && email){
+        dispatch(postDiscount())
         setName('')
         setEmail('')
         setPhone('')
+        }
     }
     
 

@@ -1,6 +1,6 @@
 import classes from './Footer.module.css'
-import instagram from './images/ic-instagram.svg'
-import whatsapp from './images/ic-whatsapp.svg'
+import instagramIcon from '../../assets/images/footer/ic-instagram.svg'
+import whatsappIcon from '../../assets/images/footer/ic-whatsapp.svg'
 function Footer(){
     return(
         <footer>
@@ -14,8 +14,8 @@ function Footer(){
             <div className={classes.socials}>
                 <h4>Socials</h4>
                 <div className={classes.socialsWrapper}>
-                    <img src={instagram} alt='instagram' />
-                    <img src={whatsapp} alt='whatsapp' />
+                    <img src={instagramIcon} alt='instagram' />
+                    <img src={whatsappIcon} alt='whatsapp' />
                 </div>
             </div>
             <div className={classes.address}>

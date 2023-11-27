@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    background-image: url('./images/main-bg.svg');
+    background-image: url('../../assets/images/main/main-bg.svg');
     background-size: cover;
     padding: 80px 2.5% 210px 2.5%;
 }
