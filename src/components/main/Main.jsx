@@ -4,7 +4,10 @@ import classes from './Main.module.css'
 import CategoryList from "./components/categories/CategoryList";
 import { useDispatch } from "react-redux";
 import { fetchCategories } from "../../store/slices/categoriesSlice";
+import { fetchProducts } from "../../store/slices/productsSlice";
 import GetDiscount from "./components/getDiscount/GetDiscount";
+import SaleProductList from "./components/sale/SaleProductList";
+
 
 function Main(){
     const navigate = useNavigate();
@@ -12,6 +15,7 @@ function Main(){
     
     useEffect(() => {
         dispatch(fetchCategories());
+        dispatch(fetchProducts())
       }, [dispatch]);
     
     return(
@@ -24,6 +28,7 @@ function Main(){
             </section>
             <CategoryList/>
             <GetDiscount/>
+            <SaleProductList/>
         </main>
     )
 }

@@ -1,5 +1,5 @@
 import classes from './Category.module.css'
-function CategoryItem({ id, title, image}) {
+function CategoryItem({ title, image}) {
   const url = 'http://localhost:3333'
   return (
     <li className={classes.categoryCard}>
