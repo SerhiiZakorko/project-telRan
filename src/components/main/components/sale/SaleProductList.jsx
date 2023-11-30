@@ -29,8 +29,6 @@ function SaleProductList() {
         className="mySwiper"
       >
         <ul className={classes.saleProductWrapper}>
-          {console.log(saleProducts)}
-
           {saleProducts.map((saleProduct) => {
             return (
               <SwiperSlide key={saleProduct.id}>

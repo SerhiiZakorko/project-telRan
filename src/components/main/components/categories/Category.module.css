@@ -15,15 +15,24 @@
 }
 .line {
   height: 1px;
-  width: 62.5%;
+  width: 100%;
   background: #ddd;
   margin-left: 2.2%;
+  position: relative;
 }
 .categoriesSamples a {
   border-radius: var(--radius-small, 6px);
   border: 1px solid var(--grey-divider, #ddd);
+  background-color: white;
   margin-right: 0;
   padding: 8px 16px;
+  color: var(--txt-grey, #8B8B8B);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 126%;
+  position: absolute;
+  right: 2.5%
 }
 .categoryWrapper {
   display: flex;
@@ -53,7 +62,4 @@
 .swiper {
   width: 100%;
   height: 100%;
-}
-.swiper-pagination {
-  display: none;
 }
