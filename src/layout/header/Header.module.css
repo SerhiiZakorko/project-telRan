@@ -2,6 +2,7 @@ header {
   padding: 30px 2.5%;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #DDD;;
 }
 #mainLogo {
   width: 5%;

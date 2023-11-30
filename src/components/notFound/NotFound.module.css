@@ -1,0 +1,40 @@
+.notFoundPage{
+    display: flex;
+    flex-direction: column;
+}
+.errorWrapper, .messageWrapper{
+margin: auto;
+}
+.errorWrapper{
+    margin-top: 80px;
+    display: flex;
+    gap: 2%;
+}
+.messageWrapper{
+    text-align: center;
+}
+.messageWrapper h4{
+    margin: 32px auto 16px auto;
+    color: var(--txt-black, #282828);
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 110%;
+}
+.messageWrapper p{
+    color: var(--txt-grey, #8B8B8B);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+}
+.messageWrapper button{
+    margin-top: 32px;
+    padding: 16px 10%;
+    border: none;
+    border-radius: var(--radius-small, 6px);
+    background: var(--green, #393);
+    color: var(--txt-white, #FFF);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    cursor: pointer;
+}
