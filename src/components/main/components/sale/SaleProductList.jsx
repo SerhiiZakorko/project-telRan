@@ -1,7 +1,7 @@
 import classes from "./SaleProduct.module.css";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import SaleProductItem from "./SaleProductItem";
+import ProductItem from "../../../products/ProductItem";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -32,7 +32,7 @@ function SaleProductList() {
           {saleProducts.map((saleProduct) => {
             return (
               <SwiperSlide key={saleProduct.id}>
-                <SaleProductItem key={saleProduct.id} {...saleProduct} />
+                <ProductItem key={saleProduct.id} {...saleProduct} />
               </SwiperSlide>
             );
           })}
