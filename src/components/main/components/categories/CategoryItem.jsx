@@ -3,8 +3,8 @@ function CategoryItem({ title, image}) {
   const url = 'http://localhost:3333'
   return (
     <li className={classes.categoryCard}>
-      <img src={url+image} className={classes.categoryImg}/>
-      <span className={classes.categoryTitle}>{title}</span>
+      <img src={url+image} className={classes.categoryImg} alt='Categiry-image'/>
+      <span className={classes.categoryTitle} >{title}</span>
     </li>
   );
 }

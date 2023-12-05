@@ -47,6 +47,7 @@
   gap: 20px;
   border-radius: var(--radius-big, 12px);
   border: 1px solid var(--grey-divider, #ddd);
+  position: relative;
 }
 .productImg {
   width: 100%;
@@ -55,7 +56,7 @@
   border-top-left-radius: var(--radius-big, 12px);
   border-top-right-radius: var(--radius-big, 12px);
   border-bottom: 1px solid var(--grey-divider, #ddd);
-  position: relative;
+  
 }
 .productDescription {
   display: flex;

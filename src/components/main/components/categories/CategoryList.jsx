@@ -18,7 +18,7 @@ function CategoryList() {
       </div>
       <Swiper
         slidesPerView={4}
-        spaceBetween={0}
+        spaceBetween={30}
         loop= {true}
         pagination={{
           dynamicBullets: true,
@@ -30,7 +30,7 @@ function CategoryList() {
         <ul className={classes.categoryWrapper}>
           {categories.map((category) => {
             return (
-              <SwiperSlide key={category.id}>
+              <SwiperSlide key={category.id} >
                 <CategoryItem key={category.id} {...category} />
               </SwiperSlide>
             );

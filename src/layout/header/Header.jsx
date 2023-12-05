@@ -17,8 +17,8 @@ function Header() {
           navigate("/");
         }}/>
       <nav>
-            <Link to="/">Main Page</Link>
-            <Link to="/categories">Categories</Link>
+            <Link to="/" {...window.scrollTo({ top: 0, behavior: 'smooth' })}>Main Page</Link>
+            <Link to="/categories" >Categories</Link>
             <Link to="/products">All products</Link>
             <Link to="/sales">All sales</Link>
       </nav>
@@ -36,6 +36,7 @@ function Header() {
         <Route path="/products" element={<Products />} />
         <Route path="/sales" element={<Sales />} />
         <Route path="/basket" element={<Basket />} />
+        {/* <Route path="/categories/"{categoryID} element={<ProductsByCategories/>} /> */}
         <Route path="*" element={<NotFound />} />
       </Routes>
       </>
