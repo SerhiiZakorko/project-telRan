@@ -8,6 +8,8 @@ import Sales from "../../components/sales/Sales";
 import NotFound from "../../components/notFound/NotFound";
 import Categories from "../../components/categories/Categories";
 import Basket from "../../components/basket/Basket";
+import ProductsByCategories from "../../components/products/components/ProductsByCategories";
+import { categoryID } from "../../components/categories/CategoryCard";
 function Header() {
   const navigate = useNavigate();
   return (
@@ -36,7 +38,7 @@ function Header() {
         <Route path="/products" element={<Products />} />
         <Route path="/sales" element={<Sales />} />
         <Route path="/basket" element={<Basket />} />
-        {/* <Route path="/categories/"{categoryID} element={<ProductsByCategories/>} /> */}
+        <Route path='/productsByCategories' element={<ProductsByCategories/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </>

@@ -3,7 +3,19 @@ import {categoryID}  from "../../components/categories/CategoryCard"
 
 const url = 'http://localhost:3333/categories/'
 const initialState = {
-  productsOfCategory: [],
+  productsOfCategory: {
+    "category": {
+      "title": "title",
+    },
+    "data": [
+      {
+        "title": "title",
+        "price": 1,
+        "discont_price": 1,
+        "image": "/product_img/1.jpeg",
+      }, 
+    ]
+  },
   status: null,
   error: null,
 };
