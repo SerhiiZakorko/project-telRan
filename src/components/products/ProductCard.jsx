@@ -1,9 +1,9 @@
 import classes from './Products.module.css'
-function ProductItem({ title, image, discont_price, price}) {
+function ProductCard({id, title, image, discont_price, price}) {
   const url = 'http://localhost:3333'
   const discountValue = Math.floor(100 - (discont_price * 100 / price))
   return (
-    <li className={classes.productCard}>
+    <li className={classes.productCard} key={id} >
       <img src={url+image} className={classes.productImg}/>
       <div className={classes.productDescription}>
         <span className={classes.productTitle}>{title}</span>
@@ -16,4 +16,4 @@ function ProductItem({ title, image, discont_price, price}) {
     </li>
   );
 }
-export default ProductItem;
+export default ProductCard;

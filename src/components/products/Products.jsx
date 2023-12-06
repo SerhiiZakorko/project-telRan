@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../../store/slices/productsSlice"
 import classes from "./Products.module.css"
 import SetupBar from "./components/SetupBar";
-import ProductItem from "./ProductItem";
+import ProductCard from "./ProductCard";
 function Products(){
     const products = useSelector((state) => state.products.products);
     const dispatch = useDispatch();
@@ -23,7 +23,7 @@ function Products(){
             <ul className={classes.productWrapper}>
           {products.map((product) => {
             return (
-                <ProductItem key={product.id} {...product} />
+                <ProductCard key={product.id} {...product} />
             );
           })}
         </ul>

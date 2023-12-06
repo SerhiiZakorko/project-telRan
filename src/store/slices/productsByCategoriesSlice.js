@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {categoryID}  from "../../components/categories/CategoryCard"
+// import {categoryID}  from "../../components/categories/CategoryCard"
+import { categoryID } from "../../components/main/components/categories/CategoryCard";
 
 const url = 'http://localhost:3333/categories/'
 const initialState = {
@@ -8,11 +9,11 @@ const initialState = {
       "title": "title",
     },
     "data": [
-      {
+      { "id": 1,
         "title": "title",
         "price": 1,
         "discont_price": 1,
-        "image": "/product_img/1.jpeg",
+        "image": "1.jpeg",
       }, 
     ]
   },
@@ -25,7 +26,6 @@ export const fetchProductsOfCategory = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       const response = await fetch(url+categoryID);
-      console.log(categoryID, "from fetch")
       if (!response.ok) {
         throw new Error("Server Error!");
       }

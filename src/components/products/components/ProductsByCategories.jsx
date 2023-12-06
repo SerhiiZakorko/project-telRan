@@ -5,14 +5,13 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProductsOfCategory } from "../../../store/slices/productsByCategoriesSlice";
 import SetupBar from "./SetupBar";
-import ProductItem from "../ProductItem"
+import ProductCard from "../ProductCard";
 function ProductsByCategories(){
     const productsOfCategory = useSelector((state) => state.productsOfCategory.productsOfCategory);
     const dispatch = useDispatch();
     useEffect(() => {
       dispatch(fetchProductsOfCategory());
     }, [dispatch]);
-    console.log(productsOfCategory)
     return(
         <main className={classes.productsMain}>
             <div className={classes.navWrapper}>
@@ -20,14 +19,14 @@ function ProductsByCategories(){
         <div className={classes.greyLine}></div>
         <Link className={classes.links} to="/categories">Categories</Link>
         <div className={classes.greyLine}></div>
-        <Link id={classes.currentLink} to="/categories">{productsOfCategory.category.title}</Link>
+        <Link id={classes.currentLink} >{productsOfCategory.category.title}</Link>
       </div>
             <h4 className={classes.title}>{productsOfCategory.category.title}</h4>
             <SetupBar/>
             <ul className={classes.productWrapper}>
           {productsOfCategory.data.map((product) => {
             return (
-                <ProductItem key={product.id} {...product} />
+                <ProductCard key={product.id} {...product} />
             );
           })}
         </ul>
