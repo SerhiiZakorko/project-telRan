@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-// import {categoryID}  from "../../components/categories/CategoryCard"
-import { categoryID } from "../../components/main/components/categories/CategoryCard";
+import {categoryID}  from "../../components/categories/CategoryCard"
+//import { categoryID } from "../../components/main/components/categories/CategoryCard";
 
 const url = 'http://localhost:3333/categories/'
 const initialState = {
