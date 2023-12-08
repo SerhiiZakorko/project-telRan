@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../../store/slices/productsSlice"
 import classes from "./Products.module.css"
-import SetupBar from "./components/SetupBar";
+import {SetupBar} from "./components/SetupBar";
 import ProductCard from "./ProductCard";
 function Products(){
     const products = useSelector((state) => state.products.products);

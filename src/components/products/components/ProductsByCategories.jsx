@@ -4,14 +4,15 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProductsOfCategory } from "../../../store/slices/productsByCategoriesSlice";
-import SetupBar from "./SetupBar";
+import {SetupBar, filtredProducts} from "./SetupBar";
 import ProductCard from "../ProductCard";
+
 function ProductsByCategories(){
-    const productsOfCategory = useSelector((state) => state.productsOfCategory.productsOfCategory);
+    let productsOfCategory = useSelector((state) =>  state.productsOfCategory.productsOfCategory);
     const dispatch = useDispatch();
     useEffect(() => {
       dispatch(fetchProductsOfCategory());
-    }, [dispatch]);
+    }, [ dispatch, filtredProducts]);
     return(
         <main className={classes.productsMain}>
             <div className={classes.navWrapper}>
@@ -22,9 +23,17 @@ function ProductsByCategories(){
         <Link id={classes.currentLink} >{productsOfCategory.category.title}</Link>
       </div>
             <h4 className={classes.title}>{productsOfCategory.category.title}</h4>
-            <SetupBar/>
+            <SetupBar arrayOfProducts = {productsOfCategory.data}/>
             <ul className={classes.productWrapper}>
-          {productsOfCategory.data.map((product) => {
+              {filtredProducts ? 
+          filtredProducts.map((product) => {
+            return (
+                <ProductCard key={product.id} {...product} />
+                // ,filtredProducts = null
+            );
+          }
+          )
+          :  productsOfCategory.data.map((product) => {
             return (
                 <ProductCard key={product.id} {...product} />
             );

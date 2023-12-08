@@ -1,11 +1,22 @@
 import classes from "./SetupBar.module.css"
-function SetupBar(){
+import filterByPrice from "../../../utils/filtration/filterByPrice"
+let filtredProducts
+function SetupBar({arrayOfProducts}){
+    function changeHandlerFrom(e){
+        filtredProducts = (filterByPrice(arrayOfProducts, e.target.value, Infinity))
+        console.log("filtred products from ", filtredProducts)
+    }
+    function changeHandlerTo(e){
+        filtredProducts = (filterByPrice(filtredProducts, 0, e.target.value))
+        console.log("filtred products to ", filtredProducts)
+    }
+    
     return(
         <div className={classes.setupBar}>
                 <div className={classes.priceSetup}>
                     <h5>Price</h5>
-                    <input placeholder="from"/>
-                    <input placeholder="to"/>
+                    <input placeholder="from" onChange={(e) => changeHandlerFrom(e)}/>
+                    <input placeholder="to" onChange={(e) => changeHandlerTo(e)} />
                 </div>
                 <div className={classes.discountSetup}>
                     <h5>Discounted items</h5>
@@ -25,4 +36,4 @@ function SetupBar(){
             </div>
     )
 }
-export default SetupBar
+export { SetupBar, filtredProducts}

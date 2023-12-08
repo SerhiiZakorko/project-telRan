@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import {categoryID}  from "../../components/categories/CategoryCard"
-//import { categoryID } from "../../components/main/components/categories/CategoryCard";
+import {categoryIDFromCategories}  from "../../components/categories/CategoryCard"
+import { categoryIDFromMain } from "../../components/main/components/categories/CategoryCard";
 
 const url = 'http://localhost:3333/categories/'
 const initialState = {
@@ -20,12 +20,21 @@ const initialState = {
   status: null,
   error: null,
 };
-
+let id
 export const fetchProductsOfCategory = createAsyncThunk(
   "productsOfCategory/fetchProductsOfCategory",
   async (_, { rejectWithValue }) => {
     try {
-      const response = await fetch(url+categoryID);
+      let response
+      if(categoryIDFromCategories){
+        id = categoryIDFromCategories
+        response = await fetch(url+id)
+        // categoryIDFromCategories = null
+      } else if(categoryIDFromMain){
+        id = categoryIDFromMain
+        response = await fetch(url+id)
+        // categoryIDFromMain = null
+      }
       if (!response.ok) {
         throw new Error("Server Error!");
       }
