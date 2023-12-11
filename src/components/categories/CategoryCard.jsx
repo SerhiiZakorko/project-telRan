@@ -2,15 +2,13 @@ import classes from './Categories.module.css'
 import { useDispatch } from "react-redux";
 import {fetchProductsOfCategory} from "../../store/slices/productsByCategoriesSlice";
 import { Link } from 'react-router-dom';
-let categoryIDFromCategories
 
 function CategoryCard({id, title, image}) {
   const url = 'http://localhost:3333'
   
   const dispatch = useDispatch();
   function goToCategoryProducts() {
-    categoryIDFromCategories = id
-    dispatch(fetchProductsOfCategory());
+    dispatch(fetchProductsOfCategory({id}));
   }
 
   return (
@@ -20,4 +18,4 @@ function CategoryCard({id, title, image}) {
     </li>
   );
 }
-export { CategoryCard , categoryIDFromCategories }
+export default CategoryCard

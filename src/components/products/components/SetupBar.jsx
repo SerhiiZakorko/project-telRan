@@ -15,8 +15,8 @@ function SetupBar({arrayOfProducts}){
         <div className={classes.setupBar}>
                 <div className={classes.priceSetup}>
                     <h5>Price</h5>
-                    <input placeholder="from" onChange={(e) => changeHandlerFrom(e)}/>
-                    <input placeholder="to" onChange={(e) => changeHandlerTo(e)} />
+                    <input placeholder="from" onBlur={(e) => changeHandlerFrom(e)}/>
+                    <input placeholder="to" onBlur={(e) => changeHandlerTo(e)} />
                 </div>
                 <div className={classes.discountSetup}>
                     <h5>Discounted items</h5>

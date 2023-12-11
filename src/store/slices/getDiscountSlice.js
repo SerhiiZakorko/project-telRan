@@ -35,20 +35,22 @@ export const getDiscountSlice = createSlice({
   name: "discountReceiver",
   initialState,
   reducers: {},
-  extraReducers: {
-    [postDiscount.pending]: (state) => {
-      state.status = "loading";
-      state.error = null;
-    },
-    [postDiscount.fulfilled]: (state, action) => {
-      state.status = "fulfilled";
-      state.discountReceiver = action.payload;
-    },
-    [postDiscount.rejected]: (state, action) => {
-      state.status = "error";
-      state.error = action.payload;
-    },
-  }
+ 
+  extraReducers: (builder) => {
+    builder
+    .addCase(postDiscount.pending, (state) => {
+          state.status = "loading";
+          state.error = null;
+        })
+    .addCase(postDiscount.fulfilled, (state, action) => {
+          state.status = "fulfilled";
+          state.discountReceiver = action.payload;
+        })
+    .addCase(postDiscount.rejected, (state, action) => {
+          state.status = "error";
+          state.error = action.payload;
+        })
+   }
 });
 
 export default getDiscountSlice.reducer;

@@ -3,7 +3,7 @@ import classes from "./Categories.module.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCategories } from "../../store/slices/categoriesSlice";
-import {CategoryCard } from "./CategoryCard";
+import CategoryCard from "./CategoryCard";
 
 function Categories() {
   const categories = useSelector((state) => state.categories.categories);

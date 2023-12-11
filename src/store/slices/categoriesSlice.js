@@ -27,20 +27,22 @@ export const categoriesSlice = createSlice({
   name: "categories",
   initialState,
   reducers: {},
-  extraReducers: {
-    [fetchCategories.pending]: (state) => {
-      state.status = "loading";
-      state.error = null;
-    },
-    [fetchCategories.fulfilled]: (state, action) => {
-      state.status = "fulfilled";
-      state.categories = action.payload;
-    },
-    [fetchCategories.rejected]: (state, action) => {
-      state.status = "error";
-      state.error = action.payload;
-    },
-  }
+  
+  extraReducers: (builder) => {
+    builder
+    .addCase(fetchCategories.pending, (state) => {
+          state.status = "loading";
+          state.error = null;
+        })
+    .addCase(fetchCategories.fulfilled, (state, action) => {
+          state.status = "fulfilled";
+          state.categories = action.payload;
+        })
+    .addCase(fetchCategories.rejected, (state, action) => {
+          state.status = "error";
+          state.error = action.payload;
+        })
+   }
 });
 
 export default categoriesSlice.reducer;

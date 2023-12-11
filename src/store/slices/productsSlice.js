@@ -26,20 +26,22 @@ export const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {},
-  extraReducers: {
-    [fetchProducts.pending]: (state) => {
-      state.status = "loading";
-      state.error = null;
-    },
-    [fetchProducts.fulfilled]: (state, action) => {
-      state.status = "fulfilled";
-      state.products = action.payload;
-    },
-    [fetchProducts.rejected]: (state, action) => {
-      state.status = "error";
-      state.error = action.payload;
-    },
-  }
+  
+  extraReducers: (builder) => {
+    builder
+    .addCase(fetchProducts.pending, (state) => {
+          state.status = "loading";
+          state.error = null;
+        })
+    .addCase(fetchProducts.fulfilled, (state, action) => {
+          state.status = "fulfilled";
+          state.products = action.payload;
+        })
+    .addCase(fetchProducts.rejected, (state, action) => {
+          state.status = "error";
+          state.error = action.payload;
+        })
+   }
 });
 
 export default productsSlice.reducer;

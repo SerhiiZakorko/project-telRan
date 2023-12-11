@@ -1,7 +1,7 @@
 import classes from "./Category.module.css";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {CategoryCard} from "./CategoryCard";
+import CategoryCard from "./CategoryCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
