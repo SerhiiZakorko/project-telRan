@@ -4,7 +4,7 @@ function ProductCard({id, title, image, discont_price, price}) {
   const discountValue = Math.floor(100 - (discont_price * 100 / price))
   return (
     <li className={classes.productCard} key={id} >
-      <img src={url+image} className={classes.productImg}/>
+      <img src={!id ? image : url+image} className={classes.productImg}/>
       <div className={classes.productDescription}>
         <span className={classes.productTitle}>{title}</span>
         <div className={classes.priceWrapper}>

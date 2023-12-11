@@ -1,20 +1,21 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-
+import loadingIcon from "../../assets/images/loading_icon.svg"
 const url = 'http://localhost:3333/categories/'
 const initialState = {
   productsOfCategory: {
     "category": {
-      "title": "title",
+      "title": "Loading...",
     },
     "data": [
-      { "id": 1,
-        "title": "title",
-        "price": 1,
-        "discont_price": 1,
-        "image": "1.jpeg",
+      { "id": null,
+        "title": "loading...",
+        "price": " loading...",
+        "discont_price": null,
+        "image": loadingIcon,
       }, 
     ]
   },
+ 
   status: null,
   error: null,
 };
