@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProducts } from "../../store/slices/productsSlice"
@@ -11,6 +11,7 @@ function Products(){
     useEffect(() => {
         dispatch(fetchProducts())
       }, [dispatch]);
+      const {id} = useParams()
     return(
         <main className={classes.productsMain}>
             <div className={classes.navWrapper}>

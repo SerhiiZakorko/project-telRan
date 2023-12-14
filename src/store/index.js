@@ -3,6 +3,7 @@ import categoriesReducer from "./slices/categoriesSlice";
 import getDiscountReducer from "./slices/getDiscountSlice"
 import productsReducer from "./slices/productsSlice"
 import productsByCategoriesReducer from "./slices/productsByCategoriesSlice"
+import singleProductReducer from "./slices/singleProduct"
 
 export default configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export default configureStore({
     discountReceiver: getDiscountReducer,
     products: productsReducer,
     productsOfCategory: productsByCategoriesReducer,
+    product: singleProductReducer,
   },
 });

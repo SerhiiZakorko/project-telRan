@@ -9,7 +9,7 @@ import NotFound from "../../components/notFound/NotFound";
 import Categories from "../../components/categories/Categories";
 import Basket from "../../components/basket/Basket";
 import ProductsByCategories from "../../components/products/components/ProductsByCategories";
-import { categoryID } from "../../components/categories/CategoryCard";
+import SingleProduct from "../../components/products/SingleProduct";
 function Header() {
   const navigate = useNavigate();
   return (
@@ -39,6 +39,7 @@ function Header() {
         <Route path="/sales" element={<Sales />} />
         <Route path="/basket" element={<Basket />} />
         <Route path='/productsByCategories' element={<ProductsByCategories/>} />
+        <Route path="/product" element={<SingleProduct/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </>
