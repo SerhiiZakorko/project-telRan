@@ -1,18 +1,12 @@
 import classes from "./SingleProduct.module.css"
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchSingleProduct } from "../../store/slices/singleProduct";
+import { useSelector } from "react-redux";
 
-function SingleProduct({id}){
-    // const id = 15
+function SingleProduct({id, title, image}){
+  const url = 'http://localhost:3333'
     let singleProduct = useSelector((state) =>  state.product.product);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchSingleProduct({id}));
-  }, [ dispatch]);
-  console.log(singleProduct)
-
+    console.log(singleProduct[0].title)
+    
     return (
         <main>
           <div className={classes.navWrapper}>
@@ -22,7 +16,8 @@ function SingleProduct({id}){
             <div className={classes.greyLine}></div>
             <Link id={classes.currentLink} ></Link>
           </div>
-          {/* <h4>{singleProduct[0].title}</h4> */}
+          <img src={url+image}/>
+          <h4>{singleProduct[0].title}</h4>
         </main>
     )
 }

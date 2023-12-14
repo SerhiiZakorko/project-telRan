@@ -38,8 +38,8 @@ function Header() {
         <Route path="/products" element={<Products />} />
         <Route path="/sales" element={<Sales />} />
         <Route path="/basket" element={<Basket />} />
-        <Route path='/productsByCategories' element={<ProductsByCategories/>} />
-        <Route path="/product" element={<SingleProduct/>} />
+        <Route path="categories/:id" element={<ProductsByCategories/>} />
+        <Route path="/products/:id" element={<SingleProduct/>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       </>

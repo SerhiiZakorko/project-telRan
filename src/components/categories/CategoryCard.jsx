@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 function CategoryCard({id, title, image}) {
   const url = 'http://localhost:3333'
-  
   const dispatch = useDispatch();
   function goToCategoryProducts() {
     dispatch(fetchProductsOfCategory({id}));
@@ -13,8 +12,8 @@ function CategoryCard({id, title, image}) {
 
   return (
     <li className={classes.categoryCard}>
-      <Link to='/productsByCategories'><img src={url+image} className={classes.categoryImg} alt='Category-image' onClick={() => goToCategoryProducts()}/></Link>
-      <Link to='/productsByCategories'><span className={classes.categoryTitle} onClick={() => goToCategoryProducts(id)} >{title}</span></Link>
+      <Link to={`/categories/${id}`}><img src={url+image} className={classes.categoryImg} alt='Category-image' onClick={() => goToCategoryProducts(id)}/></Link>
+      <Link to={`/categories/${id}`}><span className={classes.categoryTitle} onClick={() => goToCategoryProducts(id)} >{title}</span></Link>
     </li>
   );
 }

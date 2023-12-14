@@ -1,14 +1,21 @@
 import classes from './Products.module.css'
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchSingleProduct } from '../../store/slices/singleProduct';
 
 function ProductCard({id,  title, image, discont_price, price}) {
   const url = 'http://localhost:3333'
   const discountValue = Math.floor(100 - (discont_price * 100 / price))
- 
 
+
+  const dispatch = useDispatch();
+  function goToSingleProduct() {
+    dispatch(fetchSingleProduct({id}));
+  }
+ 
   return (
     <li className={classes.productCard} key={id} >
-      <Link to="/product" id = {id}><img src={!id ? image : url+image} className={classes.productImg} /></Link>
+      <Link to={`/products/${id}`} ><img src={!id ? image : url+image} className={classes.productImg} onClick={() => goToSingleProduct(id)}/></Link>
       <div className={classes.productDescription}>
         <span className={classes.productTitle}>{title}</span>
         <div className={classes.priceWrapper}>

@@ -11,7 +11,6 @@ function Products(){
     useEffect(() => {
         dispatch(fetchProducts())
       }, [dispatch]);
-      const {id} = useParams()
     return(
         <main className={classes.productsMain}>
             <div className={classes.navWrapper}>

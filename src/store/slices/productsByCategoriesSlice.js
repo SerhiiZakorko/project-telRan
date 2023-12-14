@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import loadingIcon from "../../assets/images/loading_icon.svg"
-const url = 'http://localhost:3333/categories/'
+// const url = `http://localhost:3333/categories/${id}`
 const initialState = {
   productsOfCategory: {
     "category": {
@@ -24,7 +24,7 @@ export const fetchProductsOfCategory = createAsyncThunk(
   "productsOfCategory/fetchProductsOfCategory",
   async ({id}, { rejectWithValue }) => {
     try {
-      let response = await fetch(url+id)
+      let response = await fetch(`http://localhost:3333/categories/${id}`)
       if (!response.ok) {
         throw new Error("Server Error!");
       }
