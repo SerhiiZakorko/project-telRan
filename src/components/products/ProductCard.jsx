@@ -17,13 +17,12 @@ function ProductCard({id,  title, image, discont_price, price}) {
     <li className={classes.productCard} key={id} >
       <Link to={`/products/${id}`} ><img src={!id ? image : url+image} className={classes.productImg} onClick={() => goToSingleProduct(id)}/></Link>
       <div className={classes.productDescription}>
-        <span className={classes.productTitle}>{title}</span>
+      <Link to={`/products/${id}`} ><span className={classes.productTitle} onClick={() => goToSingleProduct(id)}>{title}</span></Link>
         <div className={classes.priceWrapper}>
           <p className={classes.discountPrice}>${discont_price || price}</p>
           {discont_price ? <p className={classes.price}>${price}</p> : null}
         </div>
         {discont_price ? <p className={classes.discount}>-{discountValue}%</p> : null}
-        <p>{id}</p>
       </div> 
     </li>
   );
