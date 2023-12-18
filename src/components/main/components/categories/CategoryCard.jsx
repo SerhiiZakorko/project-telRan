@@ -13,7 +13,7 @@ function CategoryCard({id, title, image}) {
 
   return (
     <li className={classes.categoryCard}>
-      <Link to={`/categories/${id}`}><img src={url+image} className={classes.categoryImg} alt='Categiry-image'onClick={() => goToCategoryProducts(id)}/></Link>
+      <Link to={`/categories/${id}`}><img src={url+image} className={classes.categoryImg} alt='Categiry-image' onClick={() => goToCategoryProducts(id)}/></Link>
       <Link to={`/categories/${id}`}><span className={classes.categoryTitle} onClick={() => goToCategoryProducts(id)}>{title}</span> </Link>
     </li>
   );
