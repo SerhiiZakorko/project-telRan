@@ -7,13 +7,12 @@ import { fetchProductsOfCategory } from "../../store/slices/productsByCategories
 
 function SingleProduct(){
   const url = 'http://localhost:3333'
-  // const dispatch = useDispatch()
-  // function goToCategoryProducts() {
-  //   dispatch(fetchProductsOfCategory(singleProduct.categoryId))
-  // }
+  const dispatch = useDispatch()
+  function goToCategoryProducts() {
+    dispatch(fetchProductsOfCategory({id: singleProduct.categoryId}))
+  }
 
     let singleProduct = useSelector((state) =>  state.product.product[0]);
-    console.log(singleProduct)
     const [quantity, setQantity] = useState(1)
     const minusHandler = () => {
       if(quantity > 1)setQantity(quantity - 1)
@@ -22,7 +21,26 @@ function SingleProduct(){
       setQantity(quantity + 1)
     }
     const discountValue = Math.floor(100 - (singleProduct.discont_price * 100 /singleProduct.price))
-    
+    let categoryTitle = ''
+    switch (singleProduct.categoryId) {
+      case 1:
+        categoryTitle = "Annuals"
+        break
+      case 2:
+         categoryTitle = "Nursery"
+         break
+      case 3:
+       categoryTitle = "Garden Art"
+       break
+      case 4:
+        categoryTitle = "Plant Care"
+        break
+      case 5:
+        categoryTitle = "Seasonal"
+        break
+      default:
+        categoryTitle = "Loading...";
+    }
     return (
         <main className={classes.singleProductMain}>
           <div className={classes.navWrapper}>
@@ -30,7 +48,7 @@ function SingleProduct(){
             <div className={classes.greyLine}></div>
             <Link className={classes.links} to="/categories">Categories</Link>
             <div className={classes.greyLine}></div>
-            <Link className={classes.links} to={`/categories/${singleProduct.categoryId}`} >Название категории</Link>
+            <Link className={classes.links} to={`/categories/${singleProduct.categoryId}`} onClick={() => goToCategoryProducts()} > {categoryTitle} </Link>
             <div className={classes.greyLine}></div>
             <Link id={classes.currentLink}>{singleProduct.title}</Link>
           </div>
