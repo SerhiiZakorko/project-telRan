@@ -1,0 +1,61 @@
+.basketMain{
+    padding: 40px 2.5% 0 2.5%;
+}
+.titleWrapper{
+    display: flex;
+    gap: 2.2%;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.grayLine{
+    height: 1px;
+    width: 100%;
+    background-color: #DDDDDD;
+    position: relative;
+}
+.titleWrapper h4{
+    color: var(--txt-black, #282828);
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 110%;
+    text-wrap: nowrap;
+}
+.titleWrapper button{
+    position: absolute;
+    right: 2.5%;
+    padding: 8px 16px;
+    border-radius: var(--radius-small, 6px);
+    border: 1px solid var(--grey-divider, #DDD);
+    background: white;
+    color: var(--txt-grey, #8B8B8B);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 126%;
+    cursor: pointer;
+}
+.basketMessage{
+    overflow: hidden;
+    color: var(--txt-black, #282828);
+    text-overflow: ellipsis;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+    margin-bottom: 32px;
+}
+.basket button{
+    border-radius: var(--radius-small, 6px);
+    background: var(--green, #393);
+    border: none;
+    width: 21.7%;
+    height: 58px;
+    padding: 16px auto;
+    color: var(--txt-white, #FFF);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    cursor: pointer;
+    transition: 250ms;
+}
+.basket button:hover{
+    background: var(--black, #282828);
+}

@@ -37,4 +37,8 @@ margin: auto;
     font-weight: 600;
     line-height: 130%;
     cursor: pointer;
+    transition: 250ms;
+}
+.messageWrapper button:hover{
+    background: var(--black, #282828);
 }

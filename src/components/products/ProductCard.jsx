@@ -24,6 +24,7 @@ function ProductCard({id,  title, image, discont_price, price}) {
         </div>
         {discont_price ? <p className={classes.discount}>-{discountValue}%</p> : null}
       </div> 
+      <button className={classes.addToCartBtn}>Add to cart</button>
     </li>
   );
 }

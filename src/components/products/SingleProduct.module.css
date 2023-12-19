@@ -125,6 +125,10 @@
     font-weight: 600;
     line-height: 130%;
     cursor: pointer;
+    transition: 250ms;
+  }
+  .toCartBtn:hover{
+    background-color: var(--txt-black, #282828);
   }
   .descr{
     color: var(--txt-black, #282828);
