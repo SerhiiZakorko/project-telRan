@@ -132,3 +132,8 @@
   background: var(--black, #282828);
   cursor: pointer;
 }
+.addToCartBtn:active{
+  background: var(--txt-white, #fff);
+  color: var(--black, #282828);;
+  cursor: pointer;
+}

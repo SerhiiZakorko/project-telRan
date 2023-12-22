@@ -2,29 +2,27 @@ import classes from './Products.module.css'
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchSingleProduct } from '../../store/slices/singleProduct';
+import addToCart from '../../utils/addToCart';
 
-function ProductCard({id,  title, image, discont_price, price}) {
+function ProductCard(product) {
   const url = 'http://localhost:3333'
-  const discountValue = Math.floor(100 - (discont_price * 100 / price))
-
-
+  const discountValue = Math.floor(100 - (product.discont_price * 100 / product.price))
   const dispatch = useDispatch();
   function goToSingleProduct() {
-    dispatch(fetchSingleProduct({id}));
+    dispatch(fetchSingleProduct({id : product.id}));
   }
- 
   return (
-    <li className={classes.productCard} key={id} >
-      <Link to={`/products/${id}`} ><img src={!id ? image : url+image} className={classes.productImg} onClick={() => goToSingleProduct(id)}/></Link>
+    <li className={classes.productCard} key={product.id} >
+      <Link to={`/products/${product.id}`} ><img src={!product.id ? product.image : url+product.image} className={classes.productImg} onClick={() => goToSingleProduct(product.id)}/></Link>
       <div className={classes.productDescription}>
-      <Link to={`/products/${id}`} ><span className={classes.productTitle} onClick={() => goToSingleProduct(id)}>{title}</span></Link>
+      <Link to={`/products/${product.id}`} ><span className={classes.productTitle} onClick={() => goToSingleProduct(product.id)}>{product.title}</span></Link>
         <div className={classes.priceWrapper}>
-          <p className={classes.discountPrice}>${discont_price || price}</p>
-          {discont_price ? <p className={classes.price}>${price}</p> : null}
+          <p className={classes.discountPrice}>${product.discont_price || product.price}</p>
+          {product.discont_price ? <p className={classes.price}>${product.price}</p> : null}
         </div>
-        {discont_price ? <p className={classes.discount}>-{discountValue}%</p> : null}
+        {product.discont_price ? <p className={classes.discount}>-{discountValue}%</p> : null}
       </div> 
-      <button className={classes.addToCartBtn}>Add to cart</button>
+      <button className={classes.addToCartBtn} onClick={() => addToCart(product)}>Add to cart</button>
     </li>
   );
 }

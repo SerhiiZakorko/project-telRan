@@ -42,20 +42,116 @@
     line-height: 130%;
     margin-bottom: 32px;
 }
-.basket button{
+.basketEmpty button{
     border-radius: var(--radius-small, 6px);
     background: var(--green, #393);
     border: none;
-    width: 21.7%;
+    min-width: 21.7%;
     height: 58px;
-    padding: 16px auto;
+    padding: 16px 4%;
     color: var(--txt-white, #FFF);
     font-size: 20px;
+    text-wrap: nowrap;
     font-weight: 600;
     line-height: 130%;
     cursor: pointer;
     transition: 250ms;
 }
-.basket button:hover{
+.basketEmpty button:hover{
     background: var(--black, #282828);
 }
+.basket{
+    display: grid;
+    grid-template-columns: 1fr 0.7fr;
+    column-gap: 2.2%;
+}
+.productsPart{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.productInCart{
+    display: flex;
+    border-radius: var(--radius-big, 12px);
+    border: 1px solid var(--grey-divider, #DDD);
+    position: relative;
+}
+.productInCartImg{
+    width: 25%;
+    aspect-ratio: 1.1;
+    border-radius: var(--radius-big, 12px) 0 0 var(--radius-big, 12px);
+    border-right: 1px solid var(--grey-divider, #DDD);
+}
+.productInfo{
+    padding: 4.1% 60px 4.1% 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.productInfo h5{
+    overflow: hidden;
+    color: var(--txt-black, #282828);
+    text-overflow: ellipsis;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+}
+.deleteIcon{
+    position: absolute;
+    top: 10%;
+    right: 3.3%;
+    cursor: pointer;
+}
+.productProperties{
+    display: flex;
+    gap: 8%;
+    align-items: center;
+}
+.productCounter{
+    display: flex;
+}
+.priceBlock{
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+}
+.productCounter button{
+    width: 4vw;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-small, 6px);
+    border: 1px solid var(--grey-divider, #DDD);
+    padding: 17px auto;
+    color: var(--grey-divider, #DDD);
+    font-size: 30px;
+    background: none;
+    cursor: pointer;
+  }
+  .productCounter p{
+    width: 6.7vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--txt-black, #282828);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+    border-bottom: 1px solid var(--grey-divider, #DDD);
+    border-top: 1px solid var(--grey-divider, #DDD);
+    margin: 0 -6px;
+  }
+  .discountPrice{
+    color: var(--txt-black, #282828);
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 110%;
+  }
+  .price{
+    color: var(--txt-grey, #8B8B8B);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+    text-decoration-line: line-through;
+  }
