@@ -1,7 +1,7 @@
 import classes from "./Basket.module.css";
 import { useState } from "react";
 import deleteIcon from "../../assets/images/basket/x.svg"
-function ProductInCart(productInCart){
+function ProductInCart(productInCart, deleteProduct){
     const url = 'http://localhost:3333'
     const [quantity, setQantity] = useState(1)
 
@@ -12,7 +12,9 @@ function ProductInCart(productInCart){
     const plusHandler = () => {
       setQantity(quantity + 1)
     }
-
+const deletHandler = (id) => {
+    deleteProduct(id)
+}
     return(
         <div className={classes.productInCart}>
             <img src={url+productInCart.image} className={classes.productInCartImg} alt="product-image"/>
@@ -25,12 +27,12 @@ function ProductInCart(productInCart){
                         <button onClick={() => plusHandler()}>+</button>
                     </div>
                     <div className={classes.priceBlock}>
-                        <p className={classes.discountPrice}>${productInCart.discont_price || productInCart.price}</p>
-                        {productInCart.discont_price ? <p className={classes.price}>${productInCart.price}</p> : null}
+                        <p className={classes.discountPrice}>${productInCart.discont_price * quantity || productInCart.price * quantity}</p>
+                        {productInCart.discont_price ? <p className={classes.price}>${productInCart.price * quantity}</p> : null}
                     </div>
                 </div>
             </div>
-            <img className={classes.deleteIcon} src={deleteIcon} alt="X"/>
+            <img className={classes.deleteIcon} src={deleteIcon} alt="X" onClick={() => deletHandler(productInCart.id)}/>
         </div>
     )
 }

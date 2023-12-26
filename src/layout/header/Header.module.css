@@ -30,3 +30,21 @@ a {
   aspect-ratio: 1;
   cursor: pointer;
 }
+.prodCount{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2%;
+  aspect-ratio: 1;
+  color: var(--white, #FFF);
+  text-align: center;
+  font-size: 1.2vw;
+  font-weight: 600;
+  line-height: 90%;
+  background-color: var(--green, #393);
+  padding: 4.7px;
+  border-radius: 50%;
+  position: absolute;
+  left: 93.1%;
+  top: 44px;
+}

@@ -1,10 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import classes from "./Header.module.css";
 import mainLogo from "../../assets/images/header/main-logo.svg";
 import basketImg from "../../assets/images/header/basket.svg";
 
 function Header() {
   const navigate = useNavigate();
+  const prodCount = localStorage.getItem("productsInCart")
+    ? JSON.parse(localStorage.getItem("productsInCart"))
+    : []
+
+  useEffect(() => {
+    
+  }, [prodCount]);
+ 
   return (
     <header>
       <img id={classes.mainLogo} src={mainLogo} alt="main-logo" onClick={() => {
@@ -23,6 +32,7 @@ function Header() {
           navigate("/basket");
         }}
       />
+      {prodCount.length > 0 ? <p className={classes.prodCount}>{prodCount.length}</p> : null}
       </header>
   );
 }

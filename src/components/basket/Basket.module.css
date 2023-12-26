@@ -155,3 +155,59 @@
     line-height: 130%;
     text-decoration-line: line-through;
   }
+  .orderDetailsPart{
+    border-radius: var(--radius-big, 12px);
+    background: var(--light-grey, #F1F3F4);
+    padding: 32px;
+  }
+  .orderDetailsPart h5{
+    color: var(--txt-black, #282828);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 110%;
+  }
+  .orderDetailsPart p{
+    margin-top: 24px;
+    color: var(--txt-grey, #8B8B8B);
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 130%;
+  }
+  .totalCost{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  #totalPrice{
+    color: var(--txt-black, #282828);
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 110%;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  input{
+    padding: 16px 32px;
+    color: var(--txt-grey, #8B8B8B);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 130%;
+    border-radius: var(--radius-small, 6px);
+    border: 1px solid var(--grey-divider, #DDD);
+    background: var(--white, #FFF);
+  }
+  form button{
+    margin-top: 16px;
+    border-radius: var(--radius-small, 6px);
+    background: var(--green, #393);
+    border: none;
+    padding: 16px 32px;
+    color: var(--txt-white, #FFF);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+  }
