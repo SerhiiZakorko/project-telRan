@@ -4,6 +4,7 @@ import getDiscountReducer from "./slices/getDiscountSlice"
 import productsReducer from "./slices/productsSlice"
 import productsByCategoriesReducer from "./slices/productsByCategoriesSlice"
 import singleProductReducer from "./slices/singleProduct"
+import postOrderReducer from "./slices/postOrderSlice"
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     products: productsReducer,
     productsOfCategory: productsByCategoriesReducer,
     product: singleProductReducer,
+    order: postOrderReducer
   },
 });

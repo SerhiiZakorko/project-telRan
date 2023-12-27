@@ -2,7 +2,7 @@ import classes from './Products.module.css'
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchSingleProduct } from '../../store/slices/singleProduct';
-import addToCart from '../../utils/addToCart';
+import addToCart from '../../utils/basket/addToCart';
 
 function ProductCard(product) {
   const url = 'http://localhost:3333'

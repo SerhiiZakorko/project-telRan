@@ -1,20 +1,20 @@
-import {discountReceiver} from "../../utils/createDiscountReceiver"
+import {order} from "../../utils/basket/createOrder"
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const url = "http://localhost:3333/sale/send"
+const url = "http://localhost:3333/order/send"
 const initialState = {
-  discountReceiver: null,
+  order: null,
   status: null,
   error: null,
 };
-export const postDiscount= createAsyncThunk(
-  "discountReceiver/postDiscount",
+export const postOrder = createAsyncThunk(
+  "order/postOrder",
   async (_, { rejectWithValue }) => {
     if(initialState !== null){
     try {
       const response = await fetch(url, {
         method: 'POST',
-        body: JSON.stringify(discountReceiver),
+        body: JSON.stringify(order),
         headers: {
             "Content-type": "application/json; charset=utf-8",
         }
@@ -31,26 +31,26 @@ export const postDiscount= createAsyncThunk(
   }
 );
 
-export const getDiscountSlice = createSlice({
-  name: "discountReceiver",
+export const postOrderSlice = createSlice({
+  name: "order",
   initialState,
   reducers: {},
  
   extraReducers: (builder) => {
     builder
-    .addCase(postDiscount.pending, (state) => {
+    .addCase(postOrder.pending, (state) => {
           state.status = "loading";
           state.error = null;
         })
-    .addCase(postDiscount.fulfilled, (state, action) => {
+    .addCase(postOrder.fulfilled, (state, action) => {
           state.status = "fulfilled";
-          state.discountReceiver = action.payload;
+          state.postOrderSlice = action.payload;
         })
-    .addCase(postDiscount.rejected, (state, action) => {
+    .addCase(postOrder.rejected, (state, action) => {
           state.status = "error";
           state.error = action.payload;
         })
    }
 });
 
-export default getDiscountSlice.reducer;
+export default postOrderSlice.reducer;

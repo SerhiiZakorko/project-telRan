@@ -1,23 +1,34 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { nameInputValidation, phoneInputValidation, emailInputValidation } from "../../utils/validations";
 import classes from "./Basket.module.css";
 import ProductInCart from "./ProductInCart";
+import { createOrder } from "../../utils/basket/createOrder";
+import { postOrder } from "../../store/slices/postOrderSlice";
 
 function Basket() {
   const navigate = useNavigate();
-  
-  useEffect(() => {
-    localStorage.setItem("productsInCart", JSON.stringify(productsInCart));;
-  }, []);
-
   const productsInCart = localStorage.getItem("productsInCart")
-    ? JSON.parse(localStorage.getItem("productsInCart"))
-    : [];
+  ? JSON.parse(localStorage.getItem("productsInCart"))
+  : [];
+  // useEffect(() => {
+  //   productsInCart = localStorage.getItem("productsInCart")
+  //   ? JSON.parse(localStorage.getItem("productsInCart"))
+  //   : [];
+  // }, [ProductInCart]);
+
+  const dispatch = useDispatch()
+  function getOrder(data) {
+    createOrder(data);
+    dispatch(postOrder());
+    reset();
+    localStorage.setItem("productsInCart", []);
+  }
     
   let totalPrice = productsInCart.reduce((total, prod) => {
-    return total + (prod.discont_price || prod.price);
+    return total + ((prod.discont_price * prod.quantity) || (prod.price * prod.quantity));
   }, 0).toFixed(2);
 
   const {
@@ -56,7 +67,7 @@ function Basket() {
               <p>Total</p>
               <p id={classes.totalPrice}>${totalPrice}</p>
             </div>
-            <form onSubmit={handleSubmit()} className={classes.formWrapper}>
+            <form onSubmit={handleSubmit(getOrder)} className={classes.formWrapper}>
               <input type="text" placeholder="Name"
                 {...register("name", nameInputValidation)}
               />

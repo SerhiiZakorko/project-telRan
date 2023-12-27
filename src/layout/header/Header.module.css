@@ -48,3 +48,6 @@ a {
   left: 93.1%;
   top: 44px;
 }
+a:hover{
+  color: var(--green, #393);
+}

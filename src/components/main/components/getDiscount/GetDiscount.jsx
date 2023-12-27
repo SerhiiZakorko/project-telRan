@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { nameInputValidation, phoneInputValidation, emailInputValidation } from "../../../../utils/validations";
 import classes from "./GetDiscount.module.css";
 import handWithPlant from "../../../../assets/images/main/hand-with-plant.svg";
-import { createDiscountReceiver } from "./createDiscountReceiver";
+import { createDiscountReceiver } from "../../../../utils/createDiscountReceiver";
 import { postDiscount } from "../../../../store/slices/getDiscountSlice";
 
 function GetDiscount() {
