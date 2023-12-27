@@ -5,7 +5,7 @@ import ProductCard from "../../../products/ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 
 function SaleProductList() {
   const products = useSelector((state) => state.products.products);
@@ -18,14 +18,19 @@ function SaleProductList() {
         <Link to="/sales">All sales</Link>
       </div>
       <Swiper
+        spaceBetween={20}
         slidesPerView={4}
-        spaceBetween={30}
+        centeredSlides={false}
+        autoplay={{
+          delay: 3500,
+          disableOnInteraction: false,
+        }}
         loop={true}
         pagination={{
-          dynamicBullets: true,
           clickable: true,
         }}
-        modules={[Pagination]}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
         <ul className={classes.saleProductWrapper}>

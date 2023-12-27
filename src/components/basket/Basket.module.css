@@ -211,3 +211,6 @@
     font-weight: 600;
     line-height: 130%;
   }
+  .errorMessage{
+    font-size: 10px;
+  }

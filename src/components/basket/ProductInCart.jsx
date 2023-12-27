@@ -1,7 +1,9 @@
 import classes from "./Basket.module.css";
 import { useState } from "react";
 import deleteIcon from "../../assets/images/basket/x.svg"
-function ProductInCart(productInCart, deleteProduct){
+import addToCart from "../../utils/addToCart";
+import deleteFromCart from "../../utils/deleteFromCart";
+function ProductInCart(productInCart){
     const url = 'http://localhost:3333'
     const [quantity, setQantity] = useState(1)
 
@@ -13,7 +15,7 @@ function ProductInCart(productInCart, deleteProduct){
       setQantity(quantity + 1)
     }
 const deletHandler = (id) => {
-    deleteProduct(id)
+    deleteFromCart(id)
 }
     return(
         <div className={classes.productInCart}>
@@ -27,8 +29,8 @@ const deletHandler = (id) => {
                         <button onClick={() => plusHandler()}>+</button>
                     </div>
                     <div className={classes.priceBlock}>
-                        <p className={classes.discountPrice}>${productInCart.discont_price * quantity || productInCart.price * quantity}</p>
-                        {productInCart.discont_price ? <p className={classes.price}>${productInCart.price * quantity}</p> : null}
+                        <p className={classes.discountPrice}>${(productInCart.discont_price * quantity || productInCart.price * quantity).toFixed(2)}</p>
+                        {productInCart.discont_price ? <p className={classes.price}>${(productInCart.price * quantity).toFixed(2)}</p> : null}
                     </div>
                 </div>
             </div>

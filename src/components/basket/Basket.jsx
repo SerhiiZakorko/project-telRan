@@ -1,24 +1,25 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import {
-  nameInputValidation,
-  phoneInputValidation,
-  emailInputValidation,
-} from "../../utils/validations";
+import { useEffect } from "react";
+import { nameInputValidation, phoneInputValidation, emailInputValidation } from "../../utils/validations";
 import classes from "./Basket.module.css";
 import ProductInCart from "./ProductInCart";
+
 function Basket() {
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    localStorage.setItem("productsInCart", JSON.stringify(productsInCart));;
+  }, []);
+
   const productsInCart = localStorage.getItem("productsInCart")
     ? JSON.parse(localStorage.getItem("productsInCart"))
     : [];
+    
   let totalPrice = productsInCart.reduce((total, prod) => {
     return total + (prod.discont_price || prod.price);
-  }, 0);
+  }, 0).toFixed(2);
 
-  function deleteProduct(id) {
-    productsInCart.filter((product) => product.id !== id);
-  }
   const {
     register,
     handleSubmit,
@@ -44,7 +45,7 @@ function Basket() {
           <div className={classes.productsPart}>
             {productsInCart.map((productInCart) => {
               return (
-                <ProductInCart key={productInCart.id} {...productInCart} deleteProduct={deleteProduct}/>
+                <ProductInCart key={productInCart.id} {...productInCart}/>
               );
             })}
           </div>
@@ -59,13 +60,13 @@ function Basket() {
               <input type="text" placeholder="Name"
                 {...register("name", nameInputValidation)}
               />
-              {errors.name && (<p style={{ color: "#02393e" }}>{errors.name.message}</p>)}
+              {errors.name && (<p style={{ color: "#02393e", fontSize: "16px", marginTop: "5px" }}>{errors.name.message}</p>)}
               <input type="text" placeholder="Phone Number" {...register("phone", phoneInputValidation)}/>
-              {errors.phone && (<p style={{ color: "#02393e" }}>{errors.phone.message}</p>)}
+              {errors.phone && (<p style={{ color: "#02393e", fontSize: "16px", marginTop: "5px" }}>{errors.phone.message}</p>)}
               <input type="text" placeholder="Email"
                 {...register("email", emailInputValidation)}
               />
-              {errors.email && (<p style={{ color: "#02393e" }}>{errors.email.message}</p>)}
+              {errors.email && (<p style={{ color: "#02393e", fontSize: "16px", marginTop: "5px" }}>{errors.email.message}</p>)}
               <button type="submit">Order</button>
             </form>
           </div>
