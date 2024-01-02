@@ -7,6 +7,8 @@ import classes from "./Basket.module.css";
 import ProductInCart from "./ProductInCart";
 import { createOrder } from "../../utils/basket/createOrder";
 import { postOrder } from "../../store/slices/postOrderSlice";
+import ModalWindow from "./ModalWindow";
+import {showModalWindow, closeModalWindow} from "../../utils/basket/showModalWindow";
 
 function Basket() {
   const navigate = useNavigate();
@@ -18,15 +20,17 @@ function Basket() {
   //   ? JSON.parse(localStorage.getItem("productsInCart"))
   //   : [];
   // }, [ProductInCart]);
-
+  let marker = false
+  
   const dispatch = useDispatch()
   function getOrder(data) {
+    showModalWindow(marker)
     createOrder(data);
     dispatch(postOrder());
     reset();
     localStorage.setItem("productsInCart", []);
+    return marker
   }
-    
   let totalPrice = productsInCart.reduce((total, prod) => {
     return total + ((prod.discont_price * prod.quantity) || (prod.price * prod.quantity));
   }, 0).toFixed(2);
@@ -83,6 +87,7 @@ function Basket() {
           </div>
         </div>
       )}
+      {marker !== false ? <ModalWindow close = {closeModalWindow} marker = {marker}/> : null}
     </main>
   );
 }

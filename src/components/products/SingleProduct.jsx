@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import loadingIcon from "../../assets/images/loading_icon.svg"
 import { useState } from "react";
 import { fetchProductsOfCategory } from "../../store/slices/productsByCategoriesSlice";
+import addToCart from "../../utils/basket/addToCart"
 
 function SingleProduct(){
   const url = 'http://localhost:3333'
@@ -20,6 +21,12 @@ function SingleProduct(){
     const plusHandler = () => {
       setQantity(quantity + 1)
     }
+
+    // const plusHandler2 = (id) => {productsInCart.map((product) => product.id === id ? (product.quantity += 1) : null);
+    //   localStorage.setItem("productsInCart", JSON.stringify(productsInCart));
+    //   setQantity(quantity + 1);
+    // };
+
     const discountValue = Math.floor(100 - (singleProduct.discont_price * 100 /singleProduct.price))
     let categoryTitle = ''
     switch (singleProduct.categoryId) {
@@ -57,8 +64,8 @@ function SingleProduct(){
             <div className={classes.singleProductInfo}>
               <h4 className={classes.singleProductTitle}>{singleProduct.title}</h4>
               <div className={classes.priceBlock}>
-                <p className={classes.discountPrice}>${singleProduct.discont_price || singleProduct.price}</p>
-                {singleProduct.discont_price ? <p className={classes.price}>${singleProduct.price}</p> : null}
+                <p className={classes.discountPrice}>${singleProduct.discont_price * quantity || singleProduct.price * quantity}</p>
+                {singleProduct.discont_price ? <p className={classes.price}>${singleProduct.price * quantity}</p> : null}
                 {singleProduct.discont_price ? <p className={classes.discount}>-{discountValue}%</p> : null}
               </div>
               <div className={classes.basketSetupBar}>
@@ -67,7 +74,7 @@ function SingleProduct(){
                   <p>{quantity}</p>
                   <button onClick={() => plusHandler()}>+</button>
                 </div>
-                <button className={classes.toCartBtn}>Add to cart</button>
+                <button className={classes.toCartBtn} onClick={() => addToCart(singleProduct, quantity)}>Add to cart</button>
               </div>
               <h5 className={classes.descr}>Description</h5>
               <p className={classes.singleProductDescription}>{singleProduct.description}</p>
