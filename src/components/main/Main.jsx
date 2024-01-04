@@ -21,7 +21,7 @@ function Main(){
     return(
         <main>
             <section className={classes.mainBanner}>
-            <h2>Amazing Discounts on Garden Products!</h2>
+            <h2 className={classes.bannerTitle}>Amazing Discounts on Garden Products!</h2>
             <button className={classes.checkBtn} onClick={() => {
                 navigate("/sales");
             }}>Check out</button>

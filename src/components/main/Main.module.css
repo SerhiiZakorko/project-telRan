@@ -6,9 +6,9 @@
     background-size: cover;
     padding: 80px 2.5% 210px 2.5%;
 }
-main h2{
+.bannerTitle{
     color: var(--txt-white, #FFF);
-    font-size: calc(6vw);
+    font-size: 96px;
     font-weight: 700;
     line-height: 110%;
 }
@@ -24,3 +24,25 @@ main h2{
     line-height: 130%;
     cursor: pointer;
 }
+
+@media (max-width: 1000px) {
+    .mainBanner{
+        padding: 60px 2% 120px 2%;
+    }
+    .bannerTitle{
+        font-size: 90px;
+    }
+  }
+@media (max-width: 768px) {
+    .mainBanner{
+        padding: 60px 2% 326px 2%;
+    }
+    .bannerTitle{
+        font-size: 68px;
+    }
+  }
+  @media (max-width: 480px) {
+    .mainBanner{
+        padding: 60px 2% 215px 2%;
+    }
+  }

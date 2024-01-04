@@ -73,7 +73,8 @@
   overflow: hidden;
   color: var(--txt-black, #282828);
   text-overflow: ellipsis;
-  font-size: 1.4rem;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 500;
   line-height: 130%;
   cursor: pointer;
@@ -136,4 +137,13 @@
   background: var(--txt-white, #fff);
   color: var(--black, #282828);;
   cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .productTitle {
+    display: block;
+    color: var(--txt-black, #282828);
+    font-size: 20px;
+    line-height: 130%;
+  }
 }
