@@ -16,7 +16,8 @@ function CategoryList() {
         <div className={classes.line}></div>
         <Link className={classes.link}to="/categories">All categories</Link>
       </div>
-      <Swiper
+      <div className={classes.slider}>
+        <Swiper
         spaceBetween={20}
         slidesPerView={4}
         centeredSlides={false}
@@ -42,6 +43,11 @@ function CategoryList() {
           })}
         </ul>
       </Swiper>
+      </div>
+      <ul className={classes.categoryMobileWrapper}>
+          {categories.map((category) => <CategoryCard key={category.id} {...category} />)}
+      </ul>
+      <Link className={classes.mobileLink} to="/categories">All categories</Link>
     </section>
   );
 }

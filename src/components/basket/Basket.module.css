@@ -210,13 +210,13 @@
     font-size: 20px;
     font-weight: 600;
     line-height: 130%;
+    cursor: pointer;
   }
   .errorMessage{
     font-size: 10px;
   }
   .modalWindowWrapper{
     position: fixed;
-  
     width: 100vw;
     height: 285%;
     top: 0;
@@ -249,4 +249,5 @@
   position: absolute;
   right: 32px;
   top: 32px;
+  cursor: pointer;
   }

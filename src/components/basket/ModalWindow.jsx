@@ -1,6 +1,6 @@
 import classes from "./Basket.module.css"
 import closeIcon from "../../assets/images/basket/xWhite.svg"
-function ModalWindow ({close, marker}){
+function ModalWindow ({close}){
     return(
         <div className={classes.modalWindowWrapper}>
             <div className={classes.modalWindow}>
@@ -10,7 +10,7 @@ function ModalWindow ({close, marker}){
                     Your order has been successfully placed on the website.<br/><br/>A manager will contact you shortly to confirm your order.
                     </h6>
                 </div>
-                <img src={closeIcon} alt="X" onClick={() => close(marker)}/>
+                <img src={closeIcon} alt="X" onClick={() => close()}/>
             </div>
         </div>
     )

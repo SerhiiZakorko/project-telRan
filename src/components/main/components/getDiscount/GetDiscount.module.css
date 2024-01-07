@@ -58,11 +58,38 @@
   cursor: pointer;
 }
 
-@media (max-width: 1000px) {
-  .mainBanner{
-      padding: 60px 2% 120px 2%;
+@media (max-width: 768px) {
+  .getDiscount{
+    display: flex;
+    flex-direction: column;
+    padding: 24px 2% 0 2%;
   }
-  main h2{
-      font-size: 90px;
+  .sectionWrrapper {
+    position: relative;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2.2%;
+  }
+  .sectionWrrapper img {
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+    position: static;
+  }
+  .formWrapper {
+    margin: 24px 0;
+    width: 100%;
+    gap: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .getDiscount{
+    overflow: hidden;
+  }
+  .sectionWrrapper img {
+    max-width: 150%;
+    width: 150%;
+    margin: 0 -25%;
   }
 }

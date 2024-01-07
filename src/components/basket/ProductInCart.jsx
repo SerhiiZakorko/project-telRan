@@ -2,7 +2,7 @@ import classes from "./Basket.module.css";
 import { useState } from "react";
 import deleteIcon from "../../assets/images/basket/x.svg";
 import deleteFromCart from "../../utils/basket/deleteFromCart";
-function ProductInCart(productInCart) {
+function ProductInCart(productInCart, prodCount, setProdCount) {
   const url = "http://localhost:3333";
 
   const [quantity, setQantity] = useState(productInCart.quantity);
@@ -22,6 +22,7 @@ function ProductInCart(productInCart) {
 
   const deletHandler = (id) => {
     deleteFromCart(id);
+    // prodCount = setProdCount(prodCount - 1)
   };
 
   return (

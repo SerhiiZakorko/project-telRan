@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import classes from "./Header.module.css";
 import mainLogo from "../../assets/images/header/main-logo.svg";
 import basketImg from "../../assets/images/header/basket.svg";
@@ -14,17 +14,15 @@ function Header() {
 
   useEffect(() => {}, [prodCount]);
 
-  let style = null;
+  let [style, setStyle] = useState(null)
   const menuOpener = () => {
     {
-      style = classes.menuIsOpen;
-      console.log(style);
+      style = setStyle(classes.menuIsOpen);
     }
   };
   const menuCloser = () => {
     {
-      style = null;
-      console.log(style);
+      style = setStyle(null);
     }
   };
   return (
@@ -96,12 +94,12 @@ function Header() {
             onClick={() => menuCloser()}
           />
           <nav className={classes.navMobile}>
-            <Link to="/" {...window.scrollTo({ top: 0, behavior: "smooth" })}>
+            <Link to="/" {...window.scrollTo({ top: 0, behavior: "smooth" })} onClick={() => menuCloser()}>
               Main Page
             </Link>
-            <Link to="/categories">Categories</Link>
-            <Link to="/products">All products</Link>
-            <Link to="/sales">All sales</Link>
+            <Link to="/categories" onClick={() => menuCloser()}>Categories</Link>
+            <Link to="/products" onClick={() => menuCloser()}>All products</Link>
+            <Link to="/sales" onClick={() => menuCloser()}>All sales</Link>
           </nav>
         </aside>
       </header>

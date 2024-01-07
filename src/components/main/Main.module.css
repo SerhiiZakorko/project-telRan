@@ -19,7 +19,8 @@
     background: var(--green, #393);
     border: none;
     color: var(--txt-white, #FFF);
-    font-size: calc(1.39vw);
+    font-size: 20px;
+    text-wrap: nowrap;
     font-weight: 600;
     line-height: 130%;
     cursor: pointer;
@@ -36,13 +37,21 @@
 @media (max-width: 768px) {
     .mainBanner{
         padding: 60px 2% 326px 2%;
+        background-position: 45%;
     }
     .bannerTitle{
         font-size: 68px;
     }
+    .checkBtn{
+        font-size: 18px;
+        width: 35%;
+    }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 768px) {
     .mainBanner{
         padding: 60px 2% 215px 2%;
+    }
+    .checkBtn{
+        width: 40%;
     }
   }
