@@ -1,24 +1,33 @@
+import classes from "./Basket.module.css";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import {
   nameInputValidation,
   phoneInputValidation,
   emailInputValidation,
 } from "../../utils/validations";
-import classes from "./Basket.module.css";
-import ProductInCart from "./ProductInCart";
 import { createOrder } from "../../utils/basket/createOrder";
 import { postOrder } from "../../store/slices/postOrderSlice";
+import { deleteFromCart, plusCount, minusCount } from "../../store/slices/basketSlice";
 import ModalWindow from "./ModalWindow";
+import ProductInCart from "./ProductInCart";
 
 function Basket() {
   const navigate = useNavigate();
-  const productsInCart = localStorage.getItem("productsInCart")
-    ? JSON.parse(localStorage.getItem("productsInCart"))
-    : [];
-
+  const productsInCart = useSelector((state) => state.productsBasket.productsBasket);
+  const prodCount = useSelector((state) => state.productsBasket.productsBasket.length);
+  const dispatch = useDispatch()
+  const deletHandler = (productId) => {
+    dispatch(deleteFromCart({ id: productId }))
+  };
+  const plusHandler = (productId) => {
+    dispatch(plusCount({ id: productId }))
+  };
+  const minusHandler = (productId) => {
+    dispatch(minusCount({ id: productId }))
+  };
   let [marker, setMarker] = useState(false);
 
   function showModalWindow() {
@@ -32,16 +41,14 @@ function Basket() {
     marker = setMarker(false);
   }
 
-  const dispatch = useDispatch();
   function getOrder(data) {
     showModalWindow(marker);
     createOrder(data);
     dispatch(postOrder());
     reset();
-    localStorage.setItem("productsInCart", []);
+    localStorage.removeItem("productsInCart", []);
   }
-  let totalPrice = productsInCart
-    .reduce((total, prod) => {
+  let totalPrice = productsInCart.reduce((total, prod) => {
       return (total + (prod.discont_price * prod.quantity || prod.price * prod.quantity)
       );
     }, 0)
@@ -54,7 +61,7 @@ function Basket() {
     formState: { errors },
   } = useForm({ mode: "all" });
 
-  let [prodCount, setProdCount] = useState(productsInCart.length);
+  
 
   return (
     <main className={classes.basketMain}>
@@ -77,7 +84,13 @@ function Basket() {
           <div className={classes.productsPart}>
             {productsInCart.map((productInCart) => {
               return (
-                <ProductInCart key={productInCart.id} {...productInCart} prodCount = {prodCount} setProdCount = {setProdCount}/>
+                <ProductInCart 
+                key={productInCart.id}
+                productInCart = {productInCart} 
+                deletHandler = {deletHandler} 
+                plusHandler = {plusHandler}
+                minusHandler = {minusHandler}
+                />
               );
             })}
           </div>

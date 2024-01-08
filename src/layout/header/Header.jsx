@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import classes from "./Header.module.css";
 import mainLogo from "../../assets/images/header/main-logo.svg";
 import basketImg from "../../assets/images/header/basket.svg";
@@ -8,13 +9,11 @@ import closeAside from "../../assets/images/basket/x.svg";
 
 function Header() {
   const navigate = useNavigate();
-  const prodCount = localStorage.getItem("productsInCart")
-    ? JSON.parse(localStorage.getItem("productsInCart"))
-    : [];
+  const prodCount = useSelector(
+    (state) => state.productsBasket.productsBasket.length
+  );
 
-  useEffect(() => {}, [prodCount]);
-
-  let [style, setStyle] = useState(null)
+  let [style, setStyle] = useState(null);
   const menuOpener = () => {
     {
       style = setStyle(classes.menuIsOpen);
@@ -52,8 +51,8 @@ function Header() {
             navigate("/basket");
           }}
         />
-        {prodCount.length > 0 ? (
-          <p className={classes.prodCount}>{prodCount.length}</p>
+        {prodCount > 0 ? (
+          <p className={classes.prodCount}>{prodCount}</p>
         ) : null}
       </header>
       <header className={classes.headerMobile}>
@@ -75,8 +74,8 @@ function Header() {
                 navigate("/basket");
               }}
             />
-            {prodCount.length > 0 ? (
-              <p className={classes.prodCountMobile}>{prodCount.length}</p>
+            {prodCount > 0 ? (
+              <p className={classes.prodCountMobile}>{prodCount}</p>
             ) : null}
           </div>
           <img
@@ -94,12 +93,22 @@ function Header() {
             onClick={() => menuCloser()}
           />
           <nav className={classes.navMobile}>
-            <Link to="/" {...window.scrollTo({ top: 0, behavior: "smooth" })} onClick={() => menuCloser()}>
+            <Link
+              to="/"
+              {...window.scrollTo({ top: 0, behavior: "smooth" })}
+              onClick={() => menuCloser()}
+            >
               Main Page
             </Link>
-            <Link to="/categories" onClick={() => menuCloser()}>Categories</Link>
-            <Link to="/products" onClick={() => menuCloser()}>All products</Link>
-            <Link to="/sales" onClick={() => menuCloser()}>All sales</Link>
+            <Link to="/categories" onClick={() => menuCloser()}>
+              Categories
+            </Link>
+            <Link to="/products" onClick={() => menuCloser()}>
+              All products
+            </Link>
+            <Link to="/sales" onClick={() => menuCloser()}>
+              All sales
+            </Link>
           </nav>
         </aside>
       </header>

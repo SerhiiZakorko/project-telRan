@@ -17,8 +17,5 @@ function addToCart(product, quantity){
       }
     })
     localStorage.setItem("productsInCart", JSON.stringify(uniqProds));
-
-    // let counter = JSON.parse(localStorage.getItem("productsInCart")).length
-    // return counter
 }
 export default addToCart
