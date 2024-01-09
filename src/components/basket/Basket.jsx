@@ -10,7 +10,7 @@ import {
 } from "../../utils/validations";
 import { createOrder } from "../../utils/basket/createOrder";
 import { postOrder } from "../../store/slices/postOrderSlice";
-import { deleteFromCart, plusCount, minusCount } from "../../store/slices/basketSlice";
+import { deleteFromCart, plusCount, minusCount, eraser } from "../../store/slices/basketSlice";
 import ModalWindow from "./ModalWindow";
 import ProductInCart from "./ProductInCart";
 
@@ -41,12 +41,13 @@ function Basket() {
     marker = setMarker(false);
   }
 
-  function getOrder(data) {
+  const getOrder = (data) => {
     showModalWindow(marker);
     createOrder(data);
     dispatch(postOrder());
+    dispatch(eraser())
     reset();
-    localStorage.removeItem("productsInCart", []);
+    
   }
   let totalPrice = productsInCart.reduce((total, prod) => {
       return (total + (prod.discont_price * prod.quantity || prod.price * prod.quantity)
@@ -60,8 +61,6 @@ function Basket() {
     reset,
     formState: { errors },
   } = useForm({ mode: "all" });
-
-  
 
   return (
     <main className={classes.basketMain}>
