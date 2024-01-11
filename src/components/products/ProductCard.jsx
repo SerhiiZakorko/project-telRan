@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchSingleProduct } from '../../store/slices/singleProduct';
 import { addToCart } from '../../store/slices/basketSlice';
-
 function ProductCard(product) {
   const url = 'http://localhost:3333'
   const discountValue = Math.floor(100 - (product.discont_price * 100 / product.price))
@@ -17,7 +16,7 @@ function ProductCard(product) {
  
   return (
     <li className={classes.productCard} key={product.id} >
-      <Link to={`/products/${product.id}`} ><img src={!product.id ? product.image : url+product.image} className={classes.productImg} onClick={() => goToSingleProduct(product.id)}/></Link>
+      <Link to={`/products/${product.id}`} ><img src={url+product.image} className={classes.productImg} onClick={() => goToSingleProduct(product.id)}/></Link>
       <div className={classes.productDescription}>
       <Link to={`/products/${product.id}`} ><span className={classes.productTitle} onClick={() => goToSingleProduct(product.id)}>{product.title}</span></Link>
         <div className={classes.priceWrapper}>
