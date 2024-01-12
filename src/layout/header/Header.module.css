@@ -75,17 +75,17 @@ a:hover{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 2%;
+  width: 18px;
   aspect-ratio: 1;
   color: var(--white, #FFF);
   text-align: center;
-  font-size: 1.2vw;
+  font-size: 10px;
   font-weight: 600;
   line-height: 90%;
   background-color: var(--green, #393);
   padding: 4.7px;
   border-radius: 50%;
-  right: 10.6%;
+  right: 90px;
   top: 20px;
 }
 aside{
@@ -130,15 +130,36 @@ aside, .navMobile{
   align-items: baseline;
 }
 .navMobile a{
-  font-size: 24px;
+  font-size: 22px;
 }
 
 @media (max-width: 1000px) {
   .headerDesktop {
     padding: 30px 2.5%;
   }
+  .prodCount{
+    width: 2.2%;
+    font-size: 1.3vw;
+    padding: 5px;
+    top: 40px;
+  }
 }
-@media (max-width: 768px) {
+@media (max-width: 800px) {
+  .prodCount{
+    width: 2.5%;
+    font-size: 1.4vw;
+    top: 37px;
+  }
+}
+@media (max-width: 700px) {
+  .prodCount{
+    width: 2.8%;
+    font-size: 1.5vw;
+    left: 92.5%;
+    top: 36px;
+  }
+}
+@media (max-width: 600px) {
   .headerDesktop {
     display: none;
   }

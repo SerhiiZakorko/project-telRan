@@ -4,9 +4,7 @@ import whatsappIcon from '../../assets/images/footer/ic-whatsapp.svg'
 function Footer(){
     return(
         <footer>
-            <div className={classes.title}>
-                <h3>Contact</h3>
-            </div>
+            <h3 className={classes.title}>Contact</h3>
             <div className={classes.phone}>
                 <h4>Phone</h4>
                 <p>+49 999 999 99 99</p>

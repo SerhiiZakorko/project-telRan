@@ -17,6 +17,7 @@ function SaleProductList() {
         <div className={classes.line}></div>
         <Link to="/sales">All sales</Link>
       </div>
+      <div className={classes.slider}>
       <Swiper
         spaceBetween={20}
         slidesPerView={4}
@@ -43,6 +44,11 @@ function SaleProductList() {
           })}
         </ul>
       </Swiper>
+      </div>
+      <ul className={classes.saleProductsMobileWrapper}>
+          {saleProducts.map((saleProduct) => <ProductCard key={saleProduct.id} {...saleProduct} />)}
+      </ul>
+      <Link className={classes.mobileLink} to="/sales">All sales</Link>
     </section>
   );
 }

@@ -1,5 +1,4 @@
 import classes from "./SingleProduct.module.css";
-import loadingIcon from "../../assets/images/loading_icon.svg";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
@@ -76,7 +75,7 @@ function SingleProduct() {
       <div className={classes.singleProductWrapper}>
         <img
           className={classes.singleProductImage}
-          src={!singleProduct.id ? loadingIcon : url + singleProduct.image}
+          src={ url + singleProduct.image}
           alt="product_photo"
         />
         <div className={classes.singleProductInfo}>
