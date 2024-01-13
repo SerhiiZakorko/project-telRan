@@ -1,7 +1,7 @@
 import classes from "./Basket.module.css";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   nameInputValidation,
@@ -34,7 +34,7 @@ function Basket() {
     marker = setMarker(true);
     setTimeout(() => {
       marker = setMarker(false);
-    }, "2500");
+    }, "3500");
   }
 
   function closeModalWindow() {

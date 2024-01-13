@@ -5,6 +5,7 @@ import { useState } from "react";
 import { fetchProductsOfCategory } from "../../store/slices/productsByCategoriesSlice";
 import { addToCart } from "../../store/slices/basketSlice";
 import { changeQuantity } from "../../store/slices/basketSlice";
+import loadingImg from "../../assets/images/main/loading_icon.svg"
 
 function SingleProduct() {
   const url = "http://localhost:3333";
@@ -16,6 +17,7 @@ function SingleProduct() {
     dispatch(addToCart(product, quantity));
   };
   let singleProduct = useSelector((state) => state.product.product[0]);
+  let status = useSelector((state) => state.product.status);
   const [quantity, setQantity] = useState(1);
   const minusHandler = () => {
     if (quantity > 1) {
@@ -72,10 +74,11 @@ function SingleProduct() {
         <div className={classes.greyLine}></div>
         <Link id={classes.currentLink}>{singleProduct.title}</Link>
       </div>
+      <h4 className={classes.singleProductTitleMobile}>{singleProduct.title}</h4>
       <div className={classes.singleProductWrapper}>
         <img
           className={classes.singleProductImage}
-          src={ url + singleProduct.image}
+          src={status === "fulfilled" ? url + singleProduct.image : loadingImg}
           alt="product_photo"
         />
         <div className={classes.singleProductInfo}>
@@ -106,11 +109,19 @@ function SingleProduct() {
               Add to cart
             </button>
           </div>
+          <div className={classes.descriptionWrapperDesktop}>
           <h5 className={classes.descr}>Description</h5>
           <p className={classes.singleProductDescription}>
             {singleProduct.description}
           </p>
+          </div>
         </div>
+        <div className={classes.descriptionWrapperMobile}>
+          <h5 className={classes.descr}>Description</h5>
+          <p className={classes.singleProductDescription}>
+            {singleProduct.description}
+          </p>
+          </div>
       </div>
     </main>
   );

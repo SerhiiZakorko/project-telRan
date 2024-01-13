@@ -44,7 +44,7 @@
 .formWrapper input::placeholder {
   color: var(--txt-white, #fff);
 }
-.formWrapper button {
+.getDiscountBtn {
   border-radius: var(--radius-small, 6px);
   background: var(--white, #fff);
   padding: 16px 32px;
@@ -56,6 +56,52 @@
   line-height: 130%;
   width: 100%;
   cursor: pointer;
+}
+.requestSubmited{
+  background-color: var(--light-grey, #F1F3F4);
+  color: #339933;
+  height: 58px;
+  padding: 16px;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.modalWindowWrapper{
+  position: fixed;
+  width: 100vw;
+  height: 285%;
+  top: 0;
+  left: 0;
+  background-color: rgba(40, 40, 40, 0.40);
+  display: flex;
+}
+.modalWindow{
+  max-width: 38%;
+  margin: 260px auto auto auto;
+  border-radius: var(--radius-big, 12px);
+  background: var(--green, #393);
+  padding: 82px 2.2% 52px 2.2%;
+  display: flex;
+  gap: 16px;
+  position: relative;
+}
+.modalWindow h5, h6{
+  color: var(--txt-white, #FFF);
+  font-size: 2.5rem;
+  font-weight: 600;
+  line-height: 110%;
+}
+.modalWindow h6{
+  font-size: 1.25rem;
+  margin-top: 24px;
+  margin-right: 10%;
+}
+.modalWindow img{
+position: absolute;
+right: 32px;
+top: 22px;
+cursor: pointer;
 }
 
 @media (max-width: 600px) {

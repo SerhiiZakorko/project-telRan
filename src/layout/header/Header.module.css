@@ -54,6 +54,7 @@ a:hover{
 .headerMobile{
   padding: 12px 2%;
   display: none;
+  border-bottom: 1px solid #DDD;
 }
 .headerWrapper{
   display: flex;

@@ -36,9 +36,7 @@ function Header() {
           }}
         />
         <nav>
-          <Link to="/" {...window.scrollTo({ top: 0, behavior: "smooth" })}>
-            Main Page
-          </Link>
+          <Link to="/">Main Page</Link>
           <Link to="/categories">Categories</Link>
           <Link to="/products">All products</Link>
           <Link to="/sales">All sales</Link>

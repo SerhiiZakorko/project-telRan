@@ -60,11 +60,25 @@
     cursor: pointer;
 }
 @media (max-width: 768px) {
+    .title{
+        font-size: 56px;
+    }
     .categoryWrapper{
         grid-template-columns: repeat(2, 1fr);
     }
   }
+@media (max-width: 480px) {
+    .navWrapper{
+        display: none;
+    }
+    .title{
+        font-size: 48px;
+    }
+  }
 @media (max-width: 360px) {
+    .title{
+        font-size: 40px;
+    }
     .categoryWrapper{
         grid-template-columns: 1fr;
     }

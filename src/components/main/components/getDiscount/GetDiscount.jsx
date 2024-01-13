@@ -1,23 +1,37 @@
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 import { nameInputValidation, phoneInputValidation, emailInputValidation } from "../../../../utils/validations";
 import classes from "./GetDiscount.module.css";
 import handWithPlant from "../../../../assets/images/main/hand-with-plant.svg";
 import { createDiscountReceiver } from "../../../../utils/createDiscountReceiver";
 import { postDiscount } from "../../../../store/slices/getDiscountSlice";
+import ModalWindowDiscount from "./ModalWindowDiscount";
 
 function GetDiscount() {
+  const [type, setType] = useState(false)
+  let [marker, setMarker] = useState(false)
   const dispatch = useDispatch();
   const {register,
             handleSubmit, 
             reset, 
             formState: { errors } } = useForm({mode: "all"});
   function getDiscount(data) {
+    setType(true)
+    showModalWindow(marker);
     createDiscountReceiver(data);
     dispatch(postDiscount());
     reset();
   }
-
+  function showModalWindow() {
+    marker = setMarker(true);
+    setTimeout(() => {
+      marker = setMarker(false);
+    }, "3500");
+  }
+  function closeModalWindow() {
+    marker = setMarker(false);
+  }
   return (
     <section className={classes.getDiscount}>
       <h4>5% off on the first order</h4>
@@ -42,9 +56,11 @@ function GetDiscount() {
             {...register("email", emailInputValidation)}
           />
           {errors.email && (<p style={{ color: "#02393e" }}>{errors.email.message}</p>)}
-          <button type="submit">Get a discount</button>
+          {!type ? <button className={classes.getDiscountBtn} type="submit">Get a discount</button> : null}
+          {type ? <p className={classes.requestSubmited}>Request Submitted</p> : null}
         </form>
       </div>
+      {marker !== false ? <ModalWindowDiscount close={closeModalWindow} /> : null}
     </section>
   );
 }
