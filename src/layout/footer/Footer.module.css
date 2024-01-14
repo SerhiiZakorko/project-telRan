@@ -17,7 +17,7 @@ footer {
 .workingHours {
   border-radius: 12px;
   background: var(--light-grey, #f1f3f4);
-  padding: 2.2vw;
+  padding: 2vw;
 }
 .title,
 .gMap {
@@ -59,7 +59,12 @@ footer {
 .socialsWrapper img {
   cursor: pointer;
 }
-@media (max-width: 775px) {
+@media (max-width: 1000px){
+  footer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
   footer {
     grid-template-columns: 2.7fr 1.5fr;
   }
@@ -68,8 +73,6 @@ footer {
   .workingHours p {
     font-size: 34px;
   }
-}
-@media (max-width: 768px) {
   .title {
     font-size: 56px;
   }

@@ -74,9 +74,10 @@ function Basket() {
           <h5 className={classes.basketMessage}>
             Looks like you have no items in your basket currently.
           </h5>
-          <button onClick={() => navigate("/products")}>
+          <button className={classes.continueBtn} onClick={() => navigate("/products")}>
             Continue Shopping
           </button>
+          <button className={classes.backLinkMobile} onClick={() => navigate(-1)}>Back to the store</button>
         </div>
       ) : (
         <div className={classes.basket}>
@@ -157,6 +158,7 @@ function Basket() {
               <button type="submit">Order</button>
             </form>
           </div>
+          <button className={classes.backLinkMobile} onClick={() => navigate(-1)}>Back to the store</button>
         </div>
       )}
       {marker !== false ? <ModalWindow close={closeModalWindow} /> : null}

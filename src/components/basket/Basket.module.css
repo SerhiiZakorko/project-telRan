@@ -42,7 +42,7 @@
     line-height: 130%;
     margin-bottom: 32px;
 }
-.basketEmpty button{
+.continueBtn{
     border-radius: var(--radius-small, 6px);
     background: var(--green, #393);
     border: none;
@@ -56,13 +56,14 @@
     line-height: 130%;
     cursor: pointer;
     transition: 250ms;
+    margin-bottom: 12px;
 }
 .basketEmpty button:hover{
     background: var(--black, #282828);
 }
 .basket{
     display: grid;
-    grid-template-columns: 1fr 0.7fr;
+    grid-template-columns: 2.7fr 2fr;
     column-gap: 2.2%;
 }
 .productsPart{
@@ -83,7 +84,7 @@
     border-right: 1px solid var(--grey-divider, #DDD);
 }
 .productInfo{
-    padding: 4.1% 60px 4.1% 32px;
+    padding: 4.1% 4.1vw 4.1% 2.2vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -95,6 +96,7 @@
     font-size: 20px;
     font-weight: 500;
     line-height: 130%;
+    margin-right: 12%;
 }
 .deleteIcon{
     position: absolute;
@@ -104,8 +106,9 @@
 }
 .productProperties{
     display: flex;
-    gap: 8%;
+    gap: 2.2vw;
     align-items: center;
+    width: 100%;
 }
 .productCounter{
     display: flex;
@@ -114,6 +117,7 @@
     display: flex;
     gap: 16px;
     align-items: baseline;
+    width: 80%;
 }
 .productCounter button{
     width: 4vw;
@@ -144,13 +148,13 @@
   }
   .discountPrice{
     color: var(--txt-black, #282828);
-    font-size: 40px;
+    font-size: 2.85vw;
     font-weight: 600;
     line-height: 110%;
   }
   .price{
     color: var(--txt-grey, #8B8B8B);
-    font-size: 20px;
+    font-size: 1.43vw;
     font-weight: 500;
     line-height: 130%;
     text-decoration-line: line-through;
@@ -158,7 +162,7 @@
   .orderDetailsPart{
     border-radius: var(--radius-big, 12px);
     background: var(--light-grey, #F1F3F4);
-    padding: 32px;
+    padding: 32px 2.2vw;
   }
   .orderDetailsPart h5{
     color: var(--txt-black, #282828);
@@ -251,3 +255,181 @@
   top: 32px;
   cursor: pointer;
   }
+  .backLinkMobile{
+    width: 55%;
+    margin: 12px auto 0 auto;
+    padding: 8px 16px;
+    border-radius: var(--radius-small, 6px);
+    border: 1px solid var(--grey-divider, #DDD);
+    background: white;
+    color: var(--txt-grey, #8B8B8B);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 126%;
+    cursor: pointer;
+    display: none;
+  }
+  @media (max-width: 1000px) {
+    .basket{
+      grid-template-columns: 1fr 1fr;
+    }
+  .productInCartImg{
+    width: 35%;
+  }
+  .productProperties{
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 12px;
+    gap: 12px;
+  }
+  .priceBlock{
+    gap: 1vw;
+    margin-right: 20%;
+  }
+  .discountPrice{
+    font-size: 3.8vw;
+  }
+  .price{
+    font-size: 1.9vw;
+  }
+  }
+  @media (max-width: 850px){
+    .orderDetailsPart p{
+      font-size: 38px;
+    }
+    #totalPrice{
+      font-size: 56px;
+    }
+  }
+  @media (max-width: 768px) {
+    .basket{
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .titleWrapper h4 {
+      font-size: 56px;
+    }
+    .productInCartImg{
+      width: 20vw;
+    }
+    .productInfo{
+      padding: 20px auto 20px 2.6vw;
+    }
+    .productProperties{
+      flex-direction: row;
+      align-items: center;
+      margin-top: 12px;
+      gap: 12px;
+    }
+    .productProperties button{
+      width: 7vw;
+    }
+    .productCounter p{
+      width: 12vw;
+    }
+    .discountPrice{
+      font-size: 40px;
+    }
+    .price{
+      font-size: 20px;
+    }
+    .orderDetailsPart h5, .orderDetailsPart p{
+      font-size: 32px;
+    }
+    }
+@media (max-width: 650px){
+  .titleWrapper{
+    align-items: flex-start;
+  }
+  .titleWrapper h4 {
+    text-wrap: wrap;
+  }
+  .grayLine{
+    display: none;
+  }
+  .titleWrapper button{
+    position: static;
+    text-wrap: nowrap;
+    margin-top: 18px;
+  }
+  .productProperties button{
+    width: 6vw;
+  }
+  .productCounter p{
+    width: 9vw;
+  }
+  .priceBlock{
+    gap: 1.5vw;
+  }
+  .discountPrice{
+    font-size: 35px;
+  }
+  .price{
+    font-size: 18px;
+  }
+} 
+@media (max-width: 550px){
+  .titleWrapper h4 {
+    font-size: 48px;
+  }
+  .discountPrice{
+    font-size: 31px;
+  }
+  .price{
+    font-size: 18px;
+  }
+}
+@media (max-width: 480px){
+  .basketMessage{
+    font-size: 18px;
+  }
+  .titleWrapper button{
+    display: none;
+  }
+  .backLinkMobile{
+    display: block;
+  }
+  .productInCartImg{
+    width: 40vw;
+  }
+  .productCounter button{
+    width: 9.5vw;
+  }
+  .productCounter p{
+    width: 13vw;
+  }
+  .productProperties{
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 12px;
+    gap: 12px;
+  }
+  .discountPrice{
+    font-size: 30px;
+  }
+  .price{
+    font-size: 16px;
+  }
+  .orderDetailsPart h5, .orderDetailsPart p{
+    font-size: 28px;
+  }
+  #totalPrice{
+    font-size: 48px;
+  }
+  input{
+    padding: 12px 20px;
+    font-size: 18px;
+  }
+  form button{
+    margin-top: 12px;
+    padding: 16px 32px;
+    color: var(--txt-white, #FFF);
+    font-size: 18px;
+  }
+}
+@media (max-width: 380px){
+  .titleWrapper h4 {
+    font-size: 40px;
+  }
+}

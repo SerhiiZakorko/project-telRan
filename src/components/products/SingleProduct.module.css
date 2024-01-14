@@ -144,6 +144,20 @@
   .toCartBtn:hover{
     background-color: var(--txt-black, #282828);
   }
+  .addedMessage{
+    border-radius: var(--radius-small, 6px);
+    border: 1px solid var(--black, #282828);
+    background: var(--white, #FFF);
+    width: 100%;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--txt-black, #282828);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 130%;
+  }
 .descriptionWrapperMobile{
   grid-column: 1/3;
   display: none;
@@ -231,11 +245,11 @@
   .discount{
     max-width: 60px;
   }
-  .toCartBtn{
+  .toCartBtn, .addedMessage{
     height: 47px;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 360px) {
   .singleProductWrapper, .priceBlock{
     display: flex;
     flex-direction: column;
@@ -251,7 +265,7 @@
   .quantityBlock{
     margin: auto;
   }
-  .toCartBtn{
+  .toCartBtn, .addedMessage{
     width: 90vw;
   }
   .quantityBlock button{

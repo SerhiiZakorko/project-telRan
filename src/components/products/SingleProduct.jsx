@@ -9,12 +9,15 @@ import loadingImg from "../../assets/images/main/loading_icon.svg"
 
 function SingleProduct() {
   const url = "http://localhost:3333";
+  let [marker, setMarker] = useState(false)
   const dispatch = useDispatch();
   function goToCategoryProducts() {
     dispatch(fetchProductsOfCategory({ id: singleProduct.categoryId }));
   }
   const addHandler = (product, quantity) => {
+    if(status === "fulfilled"){ 
     dispatch(addToCart(product, quantity));
+    setMarker(true)}
   };
   let singleProduct = useSelector((state) => state.product.product[0]);
   let status = useSelector((state) => state.product.status);
@@ -102,12 +105,12 @@ function SingleProduct() {
               <p>{quantity}</p>
               <button onClick={() => plusHandler()}>+</button>
             </div>
-            <button
+            {!marker ? <button
               className={classes.toCartBtn}
               onClick={() => addHandler(singleProduct, quantity)}
             >
               Add to cart
-            </button>
+            </button> : <p className={classes.addedMessage}>Added</p>}
           </div>
           <div className={classes.descriptionWrapperDesktop}>
           <h5 className={classes.descr}>Description</h5>
