@@ -180,12 +180,14 @@
     color: var(--txt-black, #282828);
     background-color: var(--txt-white);
   }
-  @media (max-width: 768px) {
+  @media (max-width: 1000px) {
     .singleProductWrapper{
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: 2.2%;
     }
+  }
+  @media (max-width: 768px) {
     .singleProductTitle, .price{
       font-size: 32px;
     }

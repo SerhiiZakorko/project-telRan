@@ -7,9 +7,9 @@ function NotFound() {
   return (
     <section className={classes.notFoundPage}>
       <div className={classes.errorWrapper}>
-        <img src={four} alt="4" />
-        <img src={zero} alt="0" />
-        <img src={four} alt="4" />
+        <img className={classes.four} src={four} alt="4" />
+        <img className={classes.zero} src={zero} alt="0" />
+        <img className={classes.four} src={four} alt="4" />
       </div>
       <div className={classes.messageWrapper}>
         <h4>Page Not Found</h4>
