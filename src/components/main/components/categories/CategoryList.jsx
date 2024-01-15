@@ -5,7 +5,7 @@ import CategoryCard from "./CategoryCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import {Autoplay, Navigation, Pagination } from "swiper/modules";
+import {Autoplay, Pagination } from "swiper/modules";
 
 function CategoryList() {
   const categories = useSelector((state) => state.categories.categories);
@@ -29,8 +29,8 @@ function CategoryList() {
         pagination={{
           clickable: true,
         }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        
+        modules={[Autoplay, Pagination]}
         className="mySwiper"
       >
         <ul className={classes.categoryWrapper}>

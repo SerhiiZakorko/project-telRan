@@ -30,9 +30,6 @@ function Sales(){
   const handleMaxPriceChange = (e) => {
     setMaxPrice(e.target.value);
   };
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
 
   useEffect(() => {
     if (products) {

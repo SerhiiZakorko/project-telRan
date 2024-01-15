@@ -93,8 +93,6 @@ function Header() {
           <nav className={classes.navMobile}>
             <Link
               to="/"
-              {...window.scrollTo({ top: 0, behavior: "smooth" })}
-              onClick={() => menuCloser()}
             >
               Main Page
             </Link>

@@ -2,9 +2,9 @@ import classes from './Categories.module.css'
 import { useDispatch } from "react-redux";
 import {fetchProductsOfCategory} from "../../store/slices/productsByCategoriesSlice";
 import { Link } from 'react-router-dom';
+import {url} from "../../assets/env"
 
 function CategoryCard({id, title, image}) {
-  const url = 'http://localhost:3333'
   const dispatch = useDispatch();
   function goToCategoryProducts() {
     dispatch(fetchProductsOfCategory({id}));
