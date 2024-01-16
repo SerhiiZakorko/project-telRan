@@ -6,21 +6,21 @@ import classes from "../products/Products.module.css"
 import ProductCard from "../products/ProductCard";
 import sortingProducts from "../../utils/filtration/sortingProducts";
 
-function Sales(){
-    const products = useSelector((state) => state.products.products);
-    let status = useSelector((state) => state.products.status);
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(fetchProducts())
-      }, [dispatch]);
+function Sales() {
+  const products = useSelector((state) => state.products.products);
+  let status = useSelector((state) => state.products.status);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts())
+  }, [dispatch]);
 
-    let [discountedItems, setDiscountedItems] = useState([]);
-      
-      const [isSelectOpen, setIsSelectOpen] = useState(false);
+  let [discountedItems, setDiscountedItems] = useState([]);
+
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [sortingWay, setSortingWay] = useState("byDefault");
-  
+
   const toggleSelect = () => {
     setIsSelectOpen(!isSelectOpen);
   };
@@ -49,17 +49,17 @@ function Sales(){
   const handleSortingWay = (e) => {
     setSortingWay(e.target.value);
   };
-      return(
-        <main className={classes.productsMain}>
-            <div className={classes.navWrapper}>
+  return (
+    <main className={classes.productsMain}>
+      <div className={classes.navWrapper}>
         <Link className={classes.links} to="/">Main page</Link>
         <div className={classes.greyLine}></div>
         <Link id={classes.currentLink} to="/sales">All sales</Link>
       </div>
       {status === "fulfilled" ?
         <>
-            <h4 className={classes.title}>Discounted items</h4>
-            <section className={classes.setupBar}>
+          <h4 className={classes.title}>Discounted items</h4>
+          <section className={classes.setupBar}>
             <div className={classes.priceSetup}>
               <h5>Price</h5>
               <input placeholder="from" onChange={(e) => handleMinPriceChange(e)} />
@@ -80,16 +80,16 @@ function Sales(){
               </select>
             </div>
           </section>
-            <ul className={classes.productWrapper}>
-          {discountedItems.map((discountedItem) => {
-            return (
+          <ul className={classes.productWrapper}>
+            {discountedItems.map((discountedItem) => {
+              return (
                 <ProductCard key={discountedItem.id} {...discountedItem} />
-            );
-          })}
-        </ul>
+              );
+            })}
+          </ul>
         </>
         : <p>Loading...</p>}
-        </main>
-    )
+    </main>
+  )
 }
 export default Sales

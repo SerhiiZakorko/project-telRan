@@ -1,10 +1,9 @@
 import classes from "./Basket.module.css";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 import deleteIcon from "../../assets/images/basket/x.svg";
+import { url } from "../../assets/env"
 
 function ProductInCart({productInCart, deletHandler, plusHandler, minusHandler}) {
-  const url = "http://localhost:3333";
   const [quantity, setQantity] = useState(productInCart.quantity);
 
   const prodMinusHandler = (id) => {

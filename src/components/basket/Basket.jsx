@@ -13,6 +13,7 @@ import { postOrder } from "../../store/slices/postOrderSlice";
 import { deleteFromCart, plusCount, minusCount, eraser } from "../../store/slices/basketSlice";
 import ModalWindow from "./ModalWindow";
 import ProductInCart from "./ProductInCart";
+import { getTotalPrice } from "../../utils/basket/basketTotalPrice";
 
 function Basket() {
   const navigate = useNavigate();
@@ -33,12 +34,12 @@ function Basket() {
   function showModalWindow() {
     marker = setMarker(true);
     setTimeout(() => {
-      marker = setMarker(false);
+      setMarker(false);
     }, "3500");
   }
 
   function closeModalWindow() {
-    marker = setMarker(false);
+    setMarker(false);
   }
 
   const getOrder = (data) => {
@@ -47,13 +48,8 @@ function Basket() {
     dispatch(postOrder());
     dispatch(eraser())
     reset();
-    
+
   }
-  let totalPrice = productsInCart.reduce((total, prod) => {
-      return (total + (prod.discont_price * prod.quantity || prod.price * prod.quantity)
-      );
-    }, 0)
-    .toFixed(2);
 
   const {
     register,
@@ -84,12 +80,12 @@ function Basket() {
           <div className={classes.productsPart}>
             {productsInCart.map((productInCart) => {
               return (
-                <ProductInCart 
-                key={productInCart.id}
-                productInCart = {productInCart} 
-                deletHandler = {deletHandler} 
-                plusHandler = {plusHandler}
-                minusHandler = {minusHandler}
+                <ProductInCart
+                  key={productInCart.id}
+                  productInCart={productInCart}
+                  deletHandler={deletHandler}
+                  plusHandler={plusHandler}
+                  minusHandler={minusHandler}
                 />
               );
             })}
@@ -101,7 +97,7 @@ function Basket() {
             </p>
             <div className={classes.totalCost}>
               <p>Total</p>
-              <p id={classes.totalPrice}>${totalPrice}</p>
+              <p id={classes.totalPrice}>${getTotalPrice(productsInCart)}</p>
             </div>
             <form
               onSubmit={handleSubmit(getOrder)}

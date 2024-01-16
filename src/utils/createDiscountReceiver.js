@@ -1,4 +1,3 @@
-
 let discountReceiver = {}
 function createDiscountReceiver({name, phone, email}){
     const id = Math.floor(Math.random()*999)

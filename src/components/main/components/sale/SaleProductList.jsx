@@ -5,7 +5,7 @@ import ProductCard from "../../../products/ProductCard";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination, Autoplay, Navigation } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
 
 function SaleProductList() {
   const products = useSelector((state) => state.products.products);
@@ -27,11 +27,8 @@ function SaleProductList() {
           disableOnInteraction: false,
         }}
         loop={true}
-        pagination={{
-          clickable: true,
-        }}
         navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay, Navigation]}
         className="mySwiper"
       >
         <ul className={classes.saleProductWrapper}>

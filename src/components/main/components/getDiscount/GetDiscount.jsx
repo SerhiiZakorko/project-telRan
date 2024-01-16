@@ -9,9 +9,9 @@ import { postDiscount } from "../../../../store/slices/getDiscountSlice";
 import ModalWindowDiscount from "./ModalWindowDiscount";
 
 function GetDiscount() {
+  const dispatch = useDispatch();
   const [type, setType] = useState(false)
   let [marker, setMarker] = useState(false)
-  const dispatch = useDispatch();
   const {register,
             handleSubmit, 
             reset, 
@@ -26,11 +26,11 @@ function GetDiscount() {
   function showModalWindow() {
     marker = setMarker(true);
     setTimeout(() => {
-      marker = setMarker(false);
+      setMarker(false);
     }, "3500");
   }
   function closeModalWindow() {
-    marker = setMarker(false);
+    setMarker(false);
   }
   return (
     <section className={classes.getDiscount}>
@@ -56,8 +56,7 @@ function GetDiscount() {
             {...register("email", emailInputValidation)}
           />
           {errors.email && (<p style={{ color: "#02393e" }}>{errors.email.message}</p>)}
-          {!type ? <button className={classes.getDiscountBtn} type="submit">Get a discount</button> : null}
-          {type ? <p className={classes.requestSubmited}>Request Submitted</p> : null}
+          {!type ? <button className={classes.getDiscountBtn} type="submit">Get a discount</button> : <p className={classes.requestSubmited}>Request Submitted</p>}
         </form>
       </div>
       {marker !== false ? <ModalWindowDiscount close={closeModalWindow} /> : null}

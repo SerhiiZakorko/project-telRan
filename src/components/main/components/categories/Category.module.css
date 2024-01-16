@@ -1,18 +1,21 @@
 .categoriesSamples {
   padding: 5% 2.5%;
 }
+
 .title {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-bottom: 40px;
 }
+
 .categoriesSamples h4 {
   color: var(--txt-black, #282828);
   font-size: 64px;
   font-weight: 700;
   line-height: 110%;
 }
+
 .line {
   height: 1px;
   width: 100%;
@@ -20,6 +23,7 @@
   margin-left: 2.2%;
   position: relative;
 }
+
 .categoriesSamples .link {
   border-radius: var(--radius-small, 6px);
   border: 1px solid var(--grey-divider, #ddd);
@@ -34,10 +38,12 @@
   position: absolute;
   right: 2.5%
 }
+
 .categoryWrapper {
   display: flex;
   justify-content: center;
 }
+
 .categoryCard {
   display: flex;
   flex-direction: column;
@@ -45,13 +51,15 @@
   display: flex;
   gap: 16px;
 }
+
 .categoryImg {
   width: 22vw;
   aspect-ratio: 1.5;
   border-radius: 12px;
   cursor: pointer;
 }
-.categoryTitle{
+
+.categoryTitle {
   color: var(--txt-black, #282828);
   text-align: center;
   font-size: 20px;
@@ -59,52 +67,65 @@
   line-height: 130%;
   cursor: pointer;
 }
+
 .swiper {
   width: 100%;
   height: 100%;
 }
-.categoryMobileWrapper{
+
+.categoryMobileWrapper {
   display: none;
 }
-.mobileLink{
+
+.mobileLink {
   display: none;
 }
 
 @media (max-width: 768px) {
-  .categoriesSamples h4{
-      font-size: 56px;
+  .categoriesSamples h4 {
+    font-size: 56px;
   }
 }
+
 @media (max-width: 600px) {
-  .categoriesSamples h4{
-      font-size: 48px;
+  .categoriesSamples h4 {
+    font-size: 48px;
   }
-  .slider{
+
+  .slider {
     display: none;
   }
-  .categoryMobileWrapper{
+
+  .categoryMobileWrapper {
     display: grid;
     grid-template-columns: calc(50% - 10px) calc(50% - 10px);
     row-gap: 20px;
     column-gap: 20px;
   }
+
   .categoryImg {
     width: calc(47vw - 8px);
   }
 }
+
 @media (max-width: 480px) {
-  .categoriesSamples .link{
+  .categoriesSamples .link {
     font-size: 14px;
   }
-  .categoryTitle{
+
+  .categoryTitle {
     font-size: 18px;
   }
 }
+
 @media (max-width: 450px) {
-  .line, .categoriesSamples .link{
+
+  .line,
+  .categoriesSamples .link {
     display: none;
   }
-  .mobileLink{
+
+  .mobileLink {
     display: block;
     width: 60%;
     border-radius: var(--radius-small, 6px);
@@ -119,21 +140,24 @@
     line-height: 126%;
   }
 }
+
 @media (max-width: 360px) {
-  .title{
+  .title {
     font-size: 40px;
   }
-  .categoryMobileWrapper{
+
+  .categoryMobileWrapper {
     display: flex;
     flex-direction: column;
     gap: 30px;
   }
+
   .categoryCard {
     gap: 10px;
   }
+
   .categoryImg {
     width: calc(92vw);
   }
 
 }
-

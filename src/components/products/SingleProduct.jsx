@@ -1,12 +1,13 @@
 import classes from "./SingleProduct.module.css";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { fetchProductsOfCategory } from "../../store/slices/productsByCategoriesSlice";
 import { addToCart } from "../../store/slices/basketSlice";
 import { changeQuantity } from "../../store/slices/basketSlice";
 import loadingImg from "../../assets/images/main/loading_icon.svg"
 import {url} from "../../assets/env.js"
+import { fetchSingleProduct } from '../../store/slices/singleProduct';
 import { getDiscountValue } from "../../utils/discountValue.js";
 import { getCategoryTitle } from "../../utils/filtration/switcherCategory.js";
 function SingleProduct() {
@@ -14,9 +15,14 @@ function SingleProduct() {
   let status = useSelector((state) => state.product.status);
   let [marker, setMarker] = useState(false)
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchSingleProduct({id : localStorage.getItem("productID")}))
+  }, [dispatch]);
+  
   function goToCategoryProducts() {
+    if(status === "fulfilled"){
     dispatch(fetchProductsOfCategory({ id: product.categoryId }));
-  }
+  }}
   const addHandler = (product, quantity) => {
     if(status === "fulfilled"){ 
     dispatch(addToCart(product, quantity));
