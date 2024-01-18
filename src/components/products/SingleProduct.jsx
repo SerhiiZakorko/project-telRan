@@ -73,11 +73,11 @@ function SingleProduct() {
           <div className={classes.priceBlock}>
             <p className={classes.discountPrice}>
               $
-              {product.discont_price * quantity ||
-                product.price * quantity}
+              {(product.discont_price * quantity ||
+                product.price * quantity).toFixed(2)}
             </p>
             {product.discont_price ? (
-              <p className={classes.price}>${product.price * quantity}</p>
+              <p className={classes.price}>${(product.price * quantity).toFixed(2)}</p>
             ) : null}
             {product.discont_price ? (
               <p className={classes.discount}>-{getDiscountValue(product)}%</p>
